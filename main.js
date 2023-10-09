@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from 'react-dom/client'
-import App from './src/App'
-
+import App from "./src/App";
+import dotenv from "dotenv";
+const result = dotenv.config({ path: "./.env" });
+console.log(process.env.PRODUCT_URL)
+// export const { PRODUCT_URL } = result.parsed;
+console.log( result)
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 // root.render(app())
