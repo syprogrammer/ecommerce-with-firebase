@@ -1,8 +1,9 @@
-export default functioRestaurantShimmer = () => {
+export default function RestaurantShimmer () {
   return (
-    <div className="flex flex-wrap justify-center gap-10">
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((card) => (
+    <div className="flex flex-wrap justify-evenly gap-10 py-10 px-2">
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((card) => (
         <div
+          key={card}
           role="status"
           class="max-w-sm p-4 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700"
         >

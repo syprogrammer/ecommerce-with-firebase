@@ -1,5 +1,5 @@
-export default function RestaurantCard({ resData,name, cloudinaryImageId}) {
-    console.log(resData)
+export default function RestaurantCard({ name, cloudinaryImageId}) {
+    
     // const { name, cloudinaryImageId } = resData
     console.log(cloudinaryImageId)
     return (

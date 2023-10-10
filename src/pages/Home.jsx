@@ -22,26 +22,29 @@ export default function Home() {
   }, []);
 
   const getRestaurantData = async () => {
-    const data = await fetch(
-      process.env.PRODUCT_URL
-    );
-    const res = await data.json();
-    console.log(res)
-    console.log(res?.data?.cards[2]?.data?.data?.cards)
-    console.log(
-      res?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setRestaurants(
-      res?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurants(
-      res?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    try {
+      const data = await fetch(
+        process.env.PRODUCT_URL
+      );
+      const res = await data.json();
+      let resData = res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      if(!resData){
+        resData = res?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      }
+      setRestaurants(
+       resData
+      );
+      setFilteredRestaurants(
+        resData
+      );
+    } catch (error) {
+      console.log("Fetch Err: ",error)
+    }
   };
 
   
 
-  return restaurants? (
+  return restaurants.length>0 ? (
     <div className="home p-1">
     Search
     <div className="search">
@@ -52,7 +55,7 @@ export default function Home() {
     </div>
     <div class="restaurantCards flex flex-wrap justify-center gap-10">
       {filteredRestaurants.map((restaurant) => {
-        console.log(restaurant?.info);
+        console.log(restaurant);
         return (
           <RestaurantCard
             key={restaurant?.info.id}
