@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx parcel index.html",
+    "start": "vite",
     "build": "npx parcel build index.html"
   },
+  "proxy": "https://www.swiggy.com/",
   "author": "sy",
   "license": "ISC",
   "devDependencies": {
@@ -21,15 +23,14 @@
     "postcss": "^8.4.31",
     "process": "^0.11.10",
     "stream-browserify": "^3.0.0",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.11"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "^4.1.0",
     "dotenv": "^16.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0"
-  },
-  "browserlist": [
-    "last 2 versions"
-  ]
+  }
 }

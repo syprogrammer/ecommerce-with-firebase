@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../public/logo.png";
+// import logo from "../../public/logo.png";
 import { useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
 
@@ -10,11 +10,11 @@ export default function Navbar() {
     <div
       style={{ backgroundColor: lightMode ? "" : "black" }}
       className={
-        `nav flex justify-between items-center shadow-md p-1 ${lightMode ? "bg-white" : "bg-black text-white"}`
+        `nav flex justify-between items-center shadow-md p-1 `
       }
     >
       <div>
-        <img src={logo} className="w-20" />
+        <img src="./logo.png" className="w-20" />
       </div>
       <div>
         <button onClick={toggle}>Change theme</button>
