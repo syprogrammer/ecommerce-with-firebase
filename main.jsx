@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom/client'
 import App from "./src/App"
 // console.log(import.meta.)
 import { ThemeContextProvider } from "./src/context/themeContext";
+import { Provider } from "react-redux";
+import store from "./src/redux/store";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 // root.render(app())
 root.render(
+    <Provider store={store} >
     <ThemeContextProvider>
         <App />
     </ThemeContextProvider>
+    </Provider>
 
 )
 

@@ -1,4 +1,4 @@
-export default function RestaurantShimmer () {
+export default function CardsShimmer () {
   return (
     <div className="flex flex-wrap justify-evenly gap-10 py-10 px-2">
       {[1, 2, 3, 4, 5, 6, 7, 8].map((card) => (

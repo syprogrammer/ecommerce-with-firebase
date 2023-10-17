@@ -2,22 +2,23 @@ import { Link } from "react-router-dom";
 // import logo from "../../public/logo.png";
 import { useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
-
+import { useSelector } from "react-redux";
 export default function Navbar() {
   const { lightMode, toggle } = useContext(ThemeContext);
-
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div
       style={{ backgroundColor: lightMode ? "" : "black" }}
-      className={
-        `nav flex justify-between items-center shadow-md p-1 `
-      }
+      className={`nav flex justify-between items-center shadow-md p-1 `}
     >
       <div>
         <img src="./logo.png" className="w-20" />
       </div>
       <div>
         <button onClick={toggle}>Change theme</button>
+        <Link to="/cart">
+        <span>Cart items - {cartItems.length}</span>
+        </Link>
       </div>
       <ul className="flex gap-5">
         <li>
