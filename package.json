@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx parcel index.html",
     "start": "vite",
-    "build": "npx parcel build index.html"
+    "build": "vite build"
   },
   "proxy": "https://www.swiggy.com/",
   "author": "sy",
