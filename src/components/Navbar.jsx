@@ -1,36 +1,63 @@
 import { Link } from "react-router-dom";
-// import logo from "../../public/logo.png";
 import { useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
 import { useSelector } from "react-redux";
+
 export default function Navbar() {
   const { lightMode, toggle } = useContext(ThemeContext);
   const cartItems = useSelector((store) => store.cart.items);
+
   return (
-    <div
-      style={{ backgroundColor: lightMode ? "" : "black" }}
-      className={`nav flex justify-between items-center shadow-md p-1 `}
-    >
-      <div>
-        <img src="./logo.png" className="w-20" />
-      </div>
-      <div>
-        <button onClick={toggle}>Change theme</button>
-        <Link to="/cart">
-        <span>Cart items - {cartItems.length}</span>
+    <div className="nav flex justify-evenly items-center shadow-md p-1 ">
+      <div className="logo">
+        <Link to="/">
+        <img src="./ecomm.png" className="w-12 p-2" />
         </Link>
       </div>
-      <ul className="flex gap-5">
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-      </ul>
+      <div className="search flex items-center px-1 w-1/2 border rounded-md   bg-[#f0f5ff]">
+        <label>
+          <img src="/search.svg" className="w-8 " />
+        </label>
+        <input
+          type="text"
+          placeholder="Search for Products,Brands and More"
+          className="w-full p-2  bg-[#f0f5ff] focus:border-transparent outline-none"
+        />
+      </div>
+      <div className="menus flex w-1/3 ">
+        <ul className="flex w-full justify-between">
+          <li>
+            <Link to="/about">
+              <div className="flex items-center gap-2">
+                <img src="/shopicon.svg" />
+                Become a Seller
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link to="/about">
+              <div className="flex items-center gap-2">
+                <img src="/usericon.svg" />
+                Sign in
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              <div className="flex items-center gap-2">
+                <div className="carticon relative flex">
+                  <img src="/carticon.svg" />
+                  <span className="bg-cyan-700 text-white text-xs px-1 rounded-full absolute -top-1 w-fit right-0">{cartItems.length}</span>
+                </div>
+                Cart
+              </div>
+            </Link>
+          </li>
+          <li>
+            <img src="/dotmenu.svg" className="cursor-pointer"/>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
-// https://www.swiggy.com/dapi/restaurants/search/suggest?lat=28.627981&lng=77.3648567&str=khich search suggestion
-//https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/071d07e5d5deb5e3da47feef18fb14fc
-//https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6279168&lng=77.2124919&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING

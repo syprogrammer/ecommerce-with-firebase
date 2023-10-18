@@ -11,9 +11,9 @@ const Cart = () => {
   console.log(totalPrice);
 
   return cartItems.length > 0 ? (
-    <div>
+    <div className="flex justify-center flex-wrap">
       {cartItems.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="w-32">
           <img src={item.img} className="w-20" />
           <span>{item.name}</span>
         </div>

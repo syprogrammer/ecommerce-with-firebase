@@ -26,14 +26,14 @@ const AppLayout = () => {
   return (
     <>
       <div
-        className={`${
-          lightMode ? "bg-white" : "bg-black text-white"
-        } min-h-[100vh]`}
+     className="flex flex-col"
       >
         <div className="border-b-2 border-white">
           <Navbar />
         </div>
+        <div className="bg-gray-100 pt-2 pb-5">
         <Outlet />
+        </div>
         <Footer />
       </div>
     </>
