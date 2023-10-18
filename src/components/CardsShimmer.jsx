@@ -1,8 +1,8 @@
 export default function CardsShimmer() {
   return (
-    <div className="hidden md:flex justify-center py-10 px-2  ">
+    <div className="flex justify-center py-10 px-2  ">
 
-      <div className="w-[20%]">
+      <div className="hidden md:block w-[20%]">
         <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
         <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
         <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>

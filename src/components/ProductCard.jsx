@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard({ id, name, img, price }) {
   return (
-    <div className="w-fit  md:w-1/5 p-2 ">
+    <div className="w-[40%] md:w-1/5 p-2 ">
       <Link to={`/product/${id}`}>
         <div className="container flex justify-left items-start flex-col gap-2">
           <img className="w-42 h-32 " src={img} />
 
           <div className="">
             <span>
-              {name.substr(0, 20)}
+              {name.substr(0, 10)}
               {name.length > 20 && "..."}
             </span>
           </div>
