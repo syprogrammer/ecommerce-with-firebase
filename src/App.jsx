@@ -28,7 +28,7 @@ const AppLayout = () => {
       <div
      className="flex flex-col"
       >
-        <div className="border-b-2 border-white">
+        <div className="border-b-2 border-white h-[60px]">
           <Navbar />
         </div>
         <div className="bg-gray-100 pt-2 pb-5">
