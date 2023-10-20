@@ -8,13 +8,13 @@ export default function Navbar() {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="nav flex justify-between  md:justify-evenly items-center shadow-md p-1 fixed bg-white  w-full z-10">
+    <div className="nav flex justify-between  md:justify-evenly items-center shadow-md p-1 fixed bg-white  w-full h-[60px] z-10">
       <div className="logo">
         <Link to="/">
-        <img src="./ecomm.png" className="w-12 p-2" />
+        <img src="./ecomm.svg" className="w-12 p-2" />
         </Link>
       </div>
-      <div className="search hidden order-3 flex items-center px-1 w-1/2 border rounded-md   bg-[#f0f5ff]">
+      <div className="search hidden  md:flex items-center px-1 w-1/2 border rounded-md   bg-[#f0f5ff]">
         <label>
           <img src="/search.svg" className="w-8 " />
         </label>

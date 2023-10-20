@@ -9,8 +9,9 @@ const useProductDescription = () => {
 
     useEffect(() => {
         getProduct()
-    }, [])
+    }, [prodId])
 
+   
     async function getProduct() {
         console.log(prodId)
         const docRef = doc(db, "products", prodId);
