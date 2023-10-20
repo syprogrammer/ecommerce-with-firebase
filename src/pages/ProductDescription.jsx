@@ -20,7 +20,7 @@ const ProductDescription = () => {
         <div className="w-fit">
           <div className="w-fit flex flex-col gap-5 items-center sticky top-[100px]">
             <div className="flex items-start gap-8">
-              <img className="w-52" src={product.img} />
+              <img className="w-52 " src={product.img} />
               <img
                 src="/wishlisticon.svg"
                 className="w-8 float-right -ml-4 shadow-md p-2 rounded-full"
