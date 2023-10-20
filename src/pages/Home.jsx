@@ -20,7 +20,9 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        <CardsShimmer />
+        <div className="md:w-[78%]">
+          <CardsShimmer />
+        </div>
       )}
     </div>
   );
