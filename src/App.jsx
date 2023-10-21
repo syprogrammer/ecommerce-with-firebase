@@ -8,7 +8,7 @@ import "../index.css";
 import { Suspense, lazy, useContext } from "react";
 import RestaurantMenu from "./pages/ProductDescription";
 import Error from "./components/Error";
-import { ThemeContext } from "./context/themeContext";
+
 import useOnlineStatus from "./hooks/useOnlineStatus";
 import ProductDescription from "./pages/ProductDescription";
 import Cart from "./pages/Cart";
@@ -17,7 +17,7 @@ const About = lazy(() => import("./pages/About"));
 
 const AppLayout = () => {
   const isOnline = useOnlineStatus();
-  const { lightMode, toggle } = useContext(ThemeContext);
+ 
   console.log(isOnline);
   if (!isOnline) {
     return <div>You are offline please check your internet connection</div>;

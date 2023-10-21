@@ -29,3 +29,8 @@ configure bable so that we can use import inside test file
 npm i -D babel-jest @babel/core @babel/preset-env
 
 npm i @babel/preset-react so that jest understand jsx
+
+to change all png image write below code in jest.config
+moduleNameMapper:{
+    "\\.(jpg|png|svg)":"../mocks/dummyLogo.js"
+}

@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { ThemeContext } from "../context/themeContext";
 import { useSelector } from "react-redux";
 
 export default function Navbar() {
-  const { lightMode, toggle } = useContext(ThemeContext);
+  
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
@@ -12,7 +10,7 @@ export default function Navbar() {
       <div className="logo flex flex-col items-start">
         <Link to="/" className="flex flex-col items-end px-4">
           <div className="w-fit">
-            <img src="./logo.svg" className="w-28" />
+            <img src="./logo.svg" data-testid="logo" className="w-28" />
           </div>
           <div className="flex gap-1 items-center">
             <span className="text-gray-700 italic text-xs">Explore</span>

@@ -11,9 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 // root.render(app())
 root.render(
     <Provider store={store} >
-    <ThemeContextProvider>
         <App />
-    </ThemeContextProvider>
     </Provider>
 
 )

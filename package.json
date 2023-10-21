@@ -8,13 +8,14 @@
     "dev": "vite",
     "start": "vite",
     "build": "vite build"
-  },
+  }, 
   "proxy": "https://www.swiggy.com/",
   "author": "sy",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
     "@testing-library/react": "^14.0.0",
     "babel-jest": "^29.7.0",
     "buffer": "^6.0.3",
