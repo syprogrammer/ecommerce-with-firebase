@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import cartSlice from "../redux/slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import cartSlice, { increaseQty } from "../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
 import CartCard from "../components/CartCard";
 
@@ -7,7 +7,10 @@ const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   console.log("cartitems", cartItems);
 
-  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.qty,
+    0
+  );
   const discount = 723;
   console.log(totalPrice);
 
@@ -15,8 +18,18 @@ const Cart = () => {
     <div className="max-w-[80%] mx-auto flex justify-between items-start">
       <div className="w-[72%]">
         <div className="bg-white p-5 flex justify-between items-center ">
-          <span>Deliver to Noida 201301</span>
-          <span>Change</span>
+          <div className="flex gap-1">
+            <span>Deliver to:</span>
+            <span className="font-medium">Noida-201301</span>
+          </div>
+          <button className="text-blue-700 py-1 px-5 border shadow-sm">
+            Change
+          </button>
+        </div>
+        <div className="bg-white p-5 flex justify-between items-center ">
+          <button className="bg-orange-600 text-white font-medium py-2 px-5">
+            Place Order
+          </button>
         </div>
 
         {cartItems.map((product) => (
@@ -37,22 +50,32 @@ const Cart = () => {
           </div>
           <div className="flex justify-between">
             <span>Discount</span>
-            <span className="text-green-700">-₹{discount}</span>
+            <span className="text-green-700">
+              -₹{totalPrice - discount > discount ? discount : 0}
+            </span>
           </div>
           <div className="flex justify-between">
             <span>Delivery Charges</span>
-            <span className="line-through text-gray-400">
-              ₹00 <span className="text-green-700">Free</span>
-            </span>
+            <div>
+              <span className="line-through text-gray-400 text-xs">₹00 </span>
+              <span className="text-green-700">Free</span>
+            </div>
           </div>
         </div>
         <div className="py-4 px-2 font-medium  border-t border-dotted flex justify-between">
           <span>Total Amount</span>
-          <span>₹{totalPrice - discount}</span>
+          <span>
+            ₹
+            {totalPrice - discount > discount
+              ? totalPrice - discount
+              : totalPrice}
+          </span>
         </div>
-        <div className="border-t border-dotted text-green-700">
-          You will save ₹{discount} on this order
-        </div>
+        {totalPrice - discount > discount && (
+          <div className="border-t border-dotted text-green-700">
+            You will save ₹{discount} on this order
+          </div>
+        )}
       </div>
     </div>
   ) : (

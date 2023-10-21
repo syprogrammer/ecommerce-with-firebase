@@ -9,9 +9,16 @@ export default function Navbar() {
 
   return (
     <div className="nav flex justify-between  md:justify-evenly items-center shadow-md p-1 fixed bg-white  w-full h-[60px] z-10">
-      <div className="logo">
-        <Link to="/">
-        <img src="./ecomm.svg" className="w-12 p-2" />
+      <div className="logo flex flex-col items-start">
+        <Link to="/" className="flex flex-col items-end px-4">
+          <div className="w-fit">
+            <img src="./logo.svg" className="w-28" />
+          </div>
+          <div className="flex gap-1 items-center">
+            <span className="text-gray-700 italic text-xs">Explore</span>
+            <span className="text-yellow-500 italic text-xs">Plus</span>
+            <img src="./fplus.svg" className="w-" />
+          </div>
         </Link>
       </div>
       <div className="search hidden  md:flex items-center px-1 w-1/2 border rounded-md   bg-[#f0f5ff]">
@@ -37,7 +44,7 @@ export default function Navbar() {
           <li>
             <Link to="/about">
               <div className="flex items-center gap-2">
-                <img src="/usericon.svg" />               
+                <img src="/usericon.svg" />
                 <span className="hidden md:block">Sign in</span>
               </div>
             </Link>
@@ -47,14 +54,16 @@ export default function Navbar() {
               <div className="flex items-center gap-2">
                 <div className="carticon relative flex">
                   <img src="/carticon.svg" />
-                  <span className="bg-cyan-700 text-white text-xs px-1 rounded-full absolute -top-1 w-fit right-0">{cartItems.length}</span>
+                  <span className="bg-cyan-700 text-white text-xs px-1 rounded-full absolute -top-1 w-fit right-0">
+                    {cartItems.length}
+                  </span>
                 </div>
                 <span className="hidden md:block">Cart</span>
               </div>
             </Link>
           </li>
           <li>
-            <img src="/dotmenu.svg" className="cursor-pointer"/>
+            <img src="/dotmenu.svg" className="cursor-pointer" />
           </li>
         </ul>
       </div>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer(){
     return (
         <footer className="bg-white dark:bg-gray-900">
@@ -5,14 +7,16 @@ export default function Footer(){
     <div className="md:flex md:justify-between">
       <div className="mb-6 md:mb-0">
         <a href="#" className="flex items-center">
-          <img
-            src="/ecomm.svg"
-            className="h-8 mr-3"
-            alt="ecomm logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Ecomm
-          </span>
+        <Link to="/" className="flex flex-col items-end px-4">
+          <div className="w-fit">
+            <img src="./logo.svg" className="w-28" />
+          </div>
+          <div className="flex gap-1 items-center">
+            <span className="text-gray-700 italic text-xs">Explore</span>
+            <span className="text-yellow-500 italic text-xs">Plus</span>
+            <img src="./fplus.svg" className="w-" />
+          </div>
+        </Link>
         </a>
       </div>
       <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

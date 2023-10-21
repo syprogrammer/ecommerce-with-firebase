@@ -1,0 +1,9 @@
+// we tell babel to that we are running code in jsdom not in browser
+{
+    "presets":[
+        ["@babel/preset-env",{"targets":{"node":"current"}}],
+        ["@babel/preset-react",{"runtime":"automatic"}]
+    
+    ]
+    
+}
