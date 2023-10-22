@@ -39,7 +39,7 @@ const Header = () => {
       {headerItems.map((headeritem) => (
         <div key={headeritem.title} 
         className="flex flex-col items-center p-1">
-          <img src={headeritem.src} className="w-10" />
+          <img src={headeritem.src} className="w-14 md:w-10" />
           <span className=" text-xs md:text-sm w-20 text-center font-medium">{headeritem.title}</span>
         </div>
       ))}

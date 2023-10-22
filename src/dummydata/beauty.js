@@ -40,6 +40,11 @@ const beautyandmore = [
         title:"Food Spreads",
         subtitle:"Up to 75% Off"
     },
+    {
+        imgsrc:"/other9.jpeg",
+        title:"Chocolates",
+        subtitle:"Up to 75% Off"
+    },
     
 ]
 

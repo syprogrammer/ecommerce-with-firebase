@@ -36,9 +36,14 @@ const electronicsList = [
         subtitle:"From ₹179"
     },
     {
-        imgsrc:"/electronics8.jpeg",
+        imgsrc:"/electronics8.jpg",
         title:"Best of Trimmers",
         subtitle:"From ₹399"
+    },
+    {
+        imgsrc:"/electronics9.jpeg",
+        title:"Printer ink",
+        subtitle:"upto 10% off"
     },
     
 ]

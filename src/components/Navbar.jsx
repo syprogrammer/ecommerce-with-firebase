@@ -8,13 +8,13 @@ export default function Navbar() {
   return (
     <div className="nav flex justify-between  md:justify-evenly items-center shadow-md p-1 fixed bg-white  w-full h-[60px] z-10">
       <div className="logo flex flex-col items-start">
-        <Link to="/" className="flex flex-col items-end px-4">
+        <Link to="/" className="flex flex-col items-end px-1 md;px-4">
           <div className="w-fit">
-            <img src="./logo.svg" data-testid="logo" className="w-20 md:w-28" />
+            <img src="./logo.svg" data-testid="logo" className="w-28" />
           </div>
           <div className="flex gap-1 items-center">
-            <span className="text-gray-700 italic  text-[7px] md:text-xs">Explore</span>
-            <span className="text-yellow-500 italic  text-[7px] md:text-xs">Plus</span>
+            <span className="text-gray-700 italic text-xs">Explore</span>
+            <span className="text-yellow-500 italic  text-xs">Plus</span>
             <img src="./fplus.svg" className="w-2" />
           </div>
         </Link>

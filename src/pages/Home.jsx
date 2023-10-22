@@ -13,11 +13,13 @@ export default function Home() {
   console.log(products);
   return (
     <div className=" md:w-[90%] mx-auto flex flex-col gap-4">
+      <div className="flex flex-col-reverse md:flex-col ">
       <div className="bg-white w-full">
         <Header />
       </div>
       <div className="w-full overflow-hidden">
         <Carousel />
+      </div>
       </div>
       <div className="bg-white w-full flex flex-col gap-5">
         <CategoryCards title={beautytitle} list={beautyandmore}/>
