@@ -5,10 +5,13 @@ import App from "./src/App"
 import { ThemeContextProvider } from "./src/context/themeContext";
 import { Provider } from "react-redux";
 import store from "./src/redux/store";
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 // root.render(app())
+register();
 root.render(
     <Provider store={store} >
         <App />

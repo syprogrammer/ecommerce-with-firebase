@@ -8,7 +8,7 @@
     "dev": "vite",
     "start": "vite",
     "build": "vite build"
-  }, 
+  },
   "proxy": "https://www.swiggy.com/",
   "author": "sy",
   "license": "ISC",
@@ -39,6 +39,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.3",
-    "react-router-dom": "^6.16.0"
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.16.0",
+    "swiper": "^10.3.1"
   }
 }
