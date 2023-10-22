@@ -35,12 +35,12 @@ const headerItems = [
 
 const Header = () => {
   return (
-    <div className="flex justify-evenly py-2">
+    <div className="flex flex-wrap justify-evenly py-2">
       {headerItems.map((headeritem) => (
         <div key={headeritem.title} 
-        className="flex flex-col items-center">
+        className="flex flex-col items-center p-1">
           <img src={headeritem.src} className="w-10" />
-          <span className="text-sm font-medium">{headeritem.title}</span>
+          <span className=" text-xs md:text-sm w-20 text-center font-medium">{headeritem.title}</span>
         </div>
       ))}
     </div>

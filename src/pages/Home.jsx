@@ -12,7 +12,7 @@ export default function Home() {
   const products = useProductsList();
   console.log(products);
   return (
-    <div className="w-[90%] mx-auto flex flex-col gap-4">
+    <div className=" md:w-[90%] mx-auto flex flex-col gap-4">
       <div className="bg-white w-full">
         <Header />
       </div>
