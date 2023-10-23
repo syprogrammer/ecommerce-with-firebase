@@ -1,6 +1,6 @@
 export default function CardsShimmer() {
   return (
-    <div className="flex justify-center py-10 px-2  ">
+    <div className="flex justify-center py-10 px-2  " data-testid="shimmer">
 
       <div className="w-[70%] flex flex-wrap justify-evenly gap-10  ">
         {[1, 2, 3, 4, 5, 6, 7, 8].map((card) => (
