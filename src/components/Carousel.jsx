@@ -16,10 +16,11 @@ const CarouselBanners = () => {
         <Swiper
           loop={true}
           autoplay={{ delay: 4000 }}
-          navigation={true}
-          className="categorycards"
-          
-
+          navigation={{
+            prevEl: ".carouselprev",
+            nextEl: ".carouselnext",
+          }}
+          className="carouselcards relative"
         >
           {carouselBanners.map((carouselImage) => (
             <SwiperSlide>
@@ -39,6 +40,12 @@ const CarouselBanners = () => {
               </picture>
             </SwiperSlide>
           ))}
+          <div className="carouselprev bg-white rounded-r-md hidden md:block absolute top-14 z-50 py-2 ">
+            <img src="./lefticon.png" className="w-6 my-[50%]" />
+          </div>
+          <div className="carouselnext bg-white rounded-l-md hidden md:block absolute right-0 z-50 top-14 py-2">
+            <img src="./lefticon.png" className="rotate-180 w-6 my-[50%]" />
+          </div>
         </Swiper>
       </div>
     </div>

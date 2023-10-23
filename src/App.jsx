@@ -13,6 +13,7 @@ import useOnlineStatus from "./hooks/useOnlineStatus";
 import ProductDescription from "./pages/ProductDescription";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
+import Search from "./pages/Search";
 const About = lazy(() => import("./pages/About"));
 
 const AppLayout = () => {
@@ -57,6 +58,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/search/:searchquery",
+        element: <Search/>,
       },
       {
         path: "/cart",
