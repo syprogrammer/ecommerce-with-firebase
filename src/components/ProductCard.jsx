@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard({ id, name, img, price }) {
   return (
-    <div className="min-w-[200px] md:w-1/5 p-2 ">
+    <div className="min-w-[220px] md:w-1/5 p-2 ">
       
       <Link to={`/product/${id}`}>
         <div className="container flex justify-left items-start flex-col gap-2">
