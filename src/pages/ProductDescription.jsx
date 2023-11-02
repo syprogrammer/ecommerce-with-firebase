@@ -15,8 +15,8 @@ const ProductDescription = () => {
   };
 
   return product ? (
-    <div className="max-w-[90%] mx-auto">
-      <div className="flex justify-evenly  mx-auto bg-white py-10 px-5 ">
+    <div className="max-w-[95%] lg:max-w-[90%] mx-auto">
+      <div className="flex flex-col lg:flex-row justify-evenly  mx-auto bg-white py-10 px-5 ">
         <div className="w-fit">
           <div className="w-fit flex flex-col gap-5 items-center sticky top-[100px]">
             <div className="flex items-start gap-8">
@@ -47,14 +47,14 @@ const ProductDescription = () => {
         </div>
         {/* ----------------------- */}
 
-        <div className="flex flex-col gap-2 relative">
+        <div className="flex flex-col gap-2 relative pt-8 lg:pt-0">
           {/* //right side */}
-          <div className="flex items-start -mt-4 justify-end text-sm gap-1 float-right">
+          <div className="hidden lg:flex items-start -mt-4 justify-end text-sm gap-1 float-right">
             <img src="/shareicon.svg" className="float-right w-5 right-0" />
             <span>Share</span>
           </div>
 
-          <span className=" flex items-start gap-2 md:max-w-[500px] lg:max-w-[700px]">
+          <span className=" flex items-start gap-2 md:max-w-[500px] lg:max-w-[700px] text-sm lg:text-lg">
             <span>{product.name}</span>
           </span>
 

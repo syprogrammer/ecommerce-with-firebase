@@ -7,25 +7,24 @@ export default function ProductCard({ id, name, img, price }) {
       <Link to={`/product/${id}`}>
         <div className="container flex justify-center lg:justify-left items-start flex-col gap-2">
           <img className="w-42 h-32 mx-auto" src={img} />
-
           <div className="">
-            <span className="">
+            <span className="text-sm md:text-lg">
               {name.substr(0, 15)}
               {name.length > 20 && "..."}
             </span>
           </div>
 
           <div className="flex gap-2 items-center">
-          <div className="rating bg-green-700 flex gap-1 items-center text-white text-sm px-1">
+          <div className="rating bg-green-700 flex gap-1 items-center text-white text-xs md:text-sm px-1">
             4.2
             <img src="/staricon.svg" />
           </div>
-          <span className="text-gray-500 text-md">
+          <span className="text-gray-500 text-xs md:text-md">
           (4588)
           </span>
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 text-sm md:text-lg">
             <span>₹{price}</span>
             <span className="line-through text-gray-400">₹540</span>
             <span className="text-sm text-green-700 font-medium">50% off</span>

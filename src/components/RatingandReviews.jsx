@@ -65,20 +65,26 @@ const RatingsAndReviews = () => {
             <span className="font-medium">Must buy!</span>
           </div>
           <span className="text-sm">it just best</span>
-          <div className="flex justify-between text-gray-500 text-xs">
+          <div className="flex flex-col md:flex-row gap-2 md:gap-0 pt-3 md:pt-0 justify-between text-gray-500 text-xs">
            
-            <div className="flex gap-1 items-center w-[80%]">
+            <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-1 md:items-center w-[90%]md:w-[80%]">
              <span className="">Kshetra Mohan das</span>
-              <img src="/certifiedicon.svg" className="w-4"/>
-              Cetified Buyer,Bhubaneswar Aug 2021
+              <div className="flex flex-row gap-1 md:gap-2 items-center">
+              <img src="/certifiedicon.svg" className="w-3 md:w-4"/>
+              <span className="flex gap-2">
+                Cetified Buyer,Bhubaneswar Aug 2021</span>
+              </div>
 
             </div>
             <div className="flex items-center gap-3 ">
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1
+              border px-2 py-1 rounded-xl md:border-0 md:px-0 md:py-0
+              ">
                 <img src="/likeicon.svg" className="text-gray-500" />
+                <span>Helpful for </span>
                 <span>2</span>
               </div>
-              <div className="flex items-center gap-1 pt-1">
+              <div className="flex items-center gap-1 md:pt-1 border px-2 py-1 rounded-xl md:border-0 md:px-0 md:py-0">
                 <img src="/dislikeicon.svg" className="-scale-y-100" />
                 <span>2</span>
               </div>
