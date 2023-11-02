@@ -15,7 +15,7 @@ const ProductDescription = () => {
   };
 
   return product ? (
-    <div className="max-w-[95%] lg:max-w-[90%] mx-auto">
+    <div className="lg:max-w-[90%] mx-auto">
       <div className="flex flex-col lg:flex-row justify-evenly  mx-auto bg-white py-10 px-5 ">
         <div className="w-fit">
           <div className="w-fit flex flex-col gap-5 items-center sticky top-[100px]">
