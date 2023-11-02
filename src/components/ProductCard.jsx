@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard({ id, name, img, price }) {
   return (
-    <div className="min-w-[220px] md:w-1/5 p-2 ">
+    <div className="border lg:border-0 p-2 ">
       
       <Link to={`/product/${id}`}>
-        <div className="container flex justify-left items-start flex-col gap-2">
-          <img className="w-42 h-32 " src={img} />
+        <div className="container flex justify-center lg:justify-left items-start flex-col gap-2">
+          <img className="w-42 h-32 mx-auto" src={img} />
 
           <div className="">
-            <span>
-              {name.substr(0, 10)}
+            <span className="">
+              {name.substr(0, 15)}
               {name.length > 20 && "..."}
             </span>
           </div>

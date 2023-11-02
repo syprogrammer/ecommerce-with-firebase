@@ -32,7 +32,7 @@ const AppLayout = () => {
         <div className="border-b-2 border-white h-[60px]">
           <Navbar />
         </div>
-        <div className="bg-gray-100 pt-2 pb-5">
+        <div className="bg-gray-100  pb-5">
         <Outlet />
         </div>
         <Footer />
