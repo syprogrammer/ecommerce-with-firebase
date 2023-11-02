@@ -21,12 +21,12 @@ const CartCard = ({ product }) => {
   };
 
   return (
-    <div className="flex items-start justify-evenly h-200px p-2">
-      <div className="w-[20%]">
-        <img src={product.img} className="w-28" />
+    <div className="flex flex-col lg:flex-row items-start justify-evenly h-200px p-2">
+      <div className="mx-auto lg:w-[20%]">
+        <img src={product.img} className="w-[55%] lg:w-28" />
       </div>
 
-      <div className="flex flex-col gap-5 w-[55%]">
+      <div className="flex flex-col gap-5 lg:w-[55%]">
         <div className="flex flex-col">
           <h2>
             {product.name.substr(0, 35)}
@@ -44,7 +44,7 @@ const CartCard = ({ product }) => {
             <img src="/infoicon.svg" className="w-3" />
           </div>
         </div>
-        <div className="pt-5 flex gap-6">
+        <div className="pt-5 flex flex-col lg:flex-row gap-6">
           <div className="flex gap-2 text-center">
             <div
               onClick={() => decreaseProductQty(product.id)}
@@ -68,7 +68,7 @@ const CartCard = ({ product }) => {
         </div>
       </div>
 
-      <div className="flex gap-1 text-xs w-[25%]">
+      <div className="flex gap-1 text-xs pt-2 lg:pt-0 lg:w-[25%]">
         <span>Delivery by Tue Oct 24 |</span>
         <span className="text-gray-400 line-through">₹40</span>
         <span className="text-green-700">Free</span>

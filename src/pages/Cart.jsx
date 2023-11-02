@@ -15,8 +15,8 @@ const Cart = () => {
   console.log(totalPrice);
 
   return cartItems.length > 0 ? (
-    <div className="max-w-[80%] mx-auto flex justify-between items-start">
-      <div className="w-[72%]">
+    <div className=" max-w-[95%] lg:max-w-[80%] mx-auto flex flex-col-reverse lg:flex-row justify-between items-start">
+      <div className="w-full lg:w-[72%]">
         <div className="bg-white p-5 flex justify-between items-center ">
           <div className="flex gap-1">
             <span>Deliver to:</span>
@@ -39,7 +39,7 @@ const Cart = () => {
         ))}
       </div>
       {/* //price calculate */}
-      <div className="bg-white p-2 w-[27%] sticky top-[70px]">
+      <div className="bg-white p-2 w-full lg:w-[27%]  mt-4 lg:mt-0 lg:sticky top-[70px]">
         <div className="text-gray-500 ">PRICE DETAILS</div>
         <hr />
 
