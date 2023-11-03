@@ -15,7 +15,7 @@ export default function Home() {
     <div className=" md:w-[90%] mx-auto flex flex-col gap-4">
       <div className="flex flex-col-reverse gap-4 md:flex-col ">
       <div className="bg-white w-full">
-        <Header />
+        <Header/>
       </div>
       <div className="w-full overflow-hidden">
         <CarouselBanners />

@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
+import SearchContainer from "./SearchContainer";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 export default function Navbar() {
   
   const cartItems = useSelector((store) => store.cart.items);
 
+  
   return (
     <div className="nav flex justify-between  md:justify-evenly items-center shadow-md p-1 fixed bg-white  w-full h-[60px] z-10">
       <div className="logo flex flex-col items-start">
-        <Link to="/" className="flex flex-col items-end px-1 md;px-4">
+        <Link to="/" className="flex flex-col items-end md:px-4">
           <div className="w-fit">
-            <img src="./logo.svg" data-testid="logo" className="w-28" />
+            <img src="./logo.svg" data-testid="logo" className="w-28" 
+            
+            />
           </div>
           <div className="flex gap-1 items-center">
             <span className="text-gray-700 italic text-xs">Explore</span>
@@ -19,15 +24,8 @@ export default function Navbar() {
           </div>
         </Link>
       </div>
-      <div className="search hidden  md:flex items-center px-1 w-1/2 border rounded-md   bg-[#f0f5ff]">
-        <label>
-          <img src="/search.svg" className="w-8 " />
-        </label>
-        <input
-          type="text"
-          placeholder="Search for Products,Brands and More"
-          className="w-full p-2  bg-[#f0f5ff] focus:border-transparent outline-none"
-        />
+      <div className="relative flex justify-end items-center px-2 lg:px-1 w-screen lg:w-1/2 lg:border rounded-md   lg:bg-[#f0f5ff]">       
+        <SearchContainer/>
       </div>
       <div className="menus flex w-[50%] md:w-1/3 ">
         <ul className="flex w-full justify-between">

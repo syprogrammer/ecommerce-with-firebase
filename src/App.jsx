@@ -14,6 +14,7 @@ import ProductDescription from "./pages/ProductDescription";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
 import Search from "./pages/Search";
+import SearchContainer from "./components/SearchContainer";
 const About = lazy(() => import("./pages/About"));
 
 const AppLayout = () => {
