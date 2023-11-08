@@ -14,7 +14,7 @@ const SearchContainer = () => {
   const closeSearchBox = () => setSearchBox(false);
 
   return (
-    <div className="md:relative border fixed w-full bg-white top-[59px] md:top-0 left-0  flex  items-center lg:px-2 lg:px-1   lg:border rounded-md   lg:bg-[#f0f5ff]">
+    <div className="md:relative border fixed w-full min-h-[32px] bg-white top-[59px] md:top-0 left-0  flex md:rounded-md  items-center lg:px-2   lg:border lg:bg-[#f0f5ff]">
       <label className="px-1">
         <img src="/search.svg" className="w-6 lg:w-8 " 
         onClick={()=>setSearchBox(!searchBox)}
@@ -30,7 +30,7 @@ const SearchContainer = () => {
         onBlur={closeSearchBox}
       />
       {searchBox && (
-        <div className="absolute w-full top-[41px] min-h-40  rounded-md bg-white ">
+        <div className="absolute w-full top-[40px] min-h-screen md:min-h-40  md:rounded-md bg-white ">
           {suggestionData?.suggestions?.map((suggestion) => (
             <div className="w-full flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-100 rounded-md">
                 <img src="/search.svg" className="w-6"/>
