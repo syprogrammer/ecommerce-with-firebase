@@ -7,10 +7,10 @@ export default function Navbar() {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="nav flex justify-between  md:justify-evenly items-center shadow-md p-1 fixed bg-white  w-full h-[60px] z-10">
+    <div className="nav  flex justify-between  md:justify-evenly items-center shadow-md p-1 fixed bg-white  w-full h-[60px] z-10">
       <div className="logo">
         <Link to="/" className="flex flex-col justify-start items-start px-2 md:px-4">
-          <img src="./logo.svg" data-testid="logo" className=" -ml-7 w-28" />
+          <img src="./logo.svg" data-testid="logo" className=" -ml-8 w-32" />
           <div className="flex gap-1 items-center">
             <span className="text-gray-700 italic text-[10px] lg:text-xs">
               Explore
