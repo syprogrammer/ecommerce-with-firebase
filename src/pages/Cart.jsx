@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import cartSlice, { increaseQty } from "../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
 import CartCard from "../components/CartCard";
+import EmptyCart from "../components/EmptyCart";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -79,7 +80,7 @@ const Cart = () => {
       </div>
     </div>
   ) : (
-    <div>your have 0 items is your cart</div>
+    <EmptyCart/>
   );
 };
 

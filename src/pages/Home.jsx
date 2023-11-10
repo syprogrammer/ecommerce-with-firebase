@@ -1,12 +1,10 @@
-import ProductCard from "../components/ProductCard";
-import CardsShimmer from "../components/CardsShimmer";
 import useProductsList from "../hooks/useProductsList";
-import Filter from "../components/Filter";
 import Header from "../components/Header";
 import CategoryCards from "../components/CategoryCards";
 import { beautyandmore, beautytitle } from "../dummydata/beauty";
 import { electronicsList, electronicstitle } from "../dummydata/electronics";
 import CarouselBanners from "../components/Carousel";
+
 
 export default function Home() {
   const products = useProductsList();

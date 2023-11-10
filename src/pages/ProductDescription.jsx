@@ -1,12 +1,14 @@
-import CardsShimmer from "../components/CardsShimmer";
+
 import useProductDescription from "../hooks/useProductDescription";
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/slices/cartSlice";
 import RatingsAndReviews from "../components/RatingandReviews";
 import SimilarProducts from "../components/SimilarProducts";
+import DescriptionShimmer from "../components/shimmer/DescriptionShimmer";
 
 const ProductDescription = () => {
   const product = useProductDescription();
+  // const product = false 
   console.log(product);
   const dispatch = useDispatch();
 
@@ -197,7 +199,7 @@ const ProductDescription = () => {
       {/* ----------------------- */}
     </div>
   ) : (
-    <CardsShimmer />
+    <DescriptionShimmer />
   );
 };
 

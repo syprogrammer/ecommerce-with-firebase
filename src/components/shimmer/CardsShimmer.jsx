@@ -2,12 +2,12 @@ export default function CardsShimmer() {
   return (
     <div className="flex justify-center py-10 px-2  " data-testid="shimmer">
 
-      <div className="w-[70%] flex flex-wrap justify-evenly gap-10  ">
+      <div className=" flex flex-wrap justify-evenly  ">
         {[1, 2, 3, 4, 5, 6, 7, 8].map((card) => (
           <div
             key={card}
             role="status"
-            class="max-w-sm p-4  rounded  animate-pulse md:p-6 dark:border-gray-700"
+            class="w-[170px] md:w-[300px] p-4  rounded  animate-pulse md:p-6 dark:border-gray-700"
           >
             <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700">
               <svg
@@ -21,7 +21,7 @@ export default function CardsShimmer() {
                 <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
               </svg>
             </div>
-            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-40 mb-4"></div>
             <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
             {/* <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
           <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div> */}

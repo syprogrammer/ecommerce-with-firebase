@@ -3,7 +3,7 @@ import useSuggestions from "../hooks/useSuggestions";
 
 const SearchContainer = () => {
   const [searchText, setSearchText] = useState("trending");
-  const [searchBox, setSearchBox] = useState(true);
+  const [searchBox, setSearchBox] = useState(false);
   const suggestionData = useSuggestions(searchText);
   const openSearchBox = () => {
     if (searchBox.length < 1) {
