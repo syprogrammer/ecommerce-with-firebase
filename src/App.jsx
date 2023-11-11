@@ -15,11 +15,13 @@ import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
 import Search from "./pages/Search";
 import SearchContainer from "./components/SearchContainer";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 const About = lazy(() => import("./pages/About"));
 
 const AppLayout = () => {
   const isOnline = useOnlineStatus();
- 
+
   console.log(isOnline);
   if (!isOnline) {
     return <div>You are offline please check your internet connection</div>;
@@ -27,14 +29,12 @@ const AppLayout = () => {
 
   return (
     <>
-      <div
-     className="flex flex-col"
-      >
-        <div className="border-b-2 border-white h-[92px]">
+      <div className="flex flex-col">
+        <div className="border-b-2 border-white h-[60px] ">
           <Navbar />
         </div>
         <div className="bg-gray-100 min-h-[70vh]  pb-5">
-        <Outlet />
+          <Outlet />
         </div>
         <Footer />
       </div>
@@ -61,8 +61,16 @@ const appRouter = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/login",
+        element: <Login/>,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
         path: "/search/:searchquery",
-        element: <Search/>,
+        element: <Search />,
       },
       {
         path: "/cart",
@@ -70,7 +78,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <Payment/>,
+        element: <Payment />,
       },
       {
         path: "/product/:prodId",
