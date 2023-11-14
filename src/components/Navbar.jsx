@@ -37,7 +37,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/about">
+            <Link to="/login">
               <div className="flex items-center gap-2">
                 <img src="/usericon.svg" />
                 <span className="hidden md:block">Sign in</span>

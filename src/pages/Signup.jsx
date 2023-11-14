@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    <div className=" my-4 flex w-[70%] lg:w-[60%] h-[70vh] mx-auto">
-      <div className="w-[40%] h-full">
+    <div className="my-8 lg:my-4 flex flex-col lg:flex-row  lg:w-[60%] h-[70vh] mx-auto">
+      <div className="lg:w-[40%] h-full">
         <AuthLeft
           heading="Looks like you're new here!"
           subheading="Sign up with your mobile number to get started"
         />
       </div>
-      <div className="right w-[60%] bg-white">
+      <div className="right lg:w-[60%] bg-white">
         <form className="py-10 px-5">
           <input
             className="border-b p-1 w-full outline-none"
@@ -28,7 +28,7 @@ const Signup = () => {
           </button>
           <Link to="/login">
             <button className="shadow-md font-semibold text-sm py-2 w-full text-[#2874f0] text-center my-1 ">
-              New User? Sign up
+            Exitsting User? Log in
             </button>
           </Link>
         </form>

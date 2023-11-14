@@ -17,6 +17,8 @@ import Search from "./pages/Search";
 import SearchContainer from "./components/SearchContainer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import EditProfile from "./pages/EditProfile";
+import Dashboard from "./pages/Dashboard";
 const About = lazy(() => import("./pages/About"));
 
 const AppLayout = () => {
@@ -67,6 +69,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/editprofile",
+        element: <EditProfile/>,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
       },
       {
         path: "/search/:searchquery",
