@@ -14,7 +14,7 @@ const SearchContainer = () => {
   const closeSearchBox = () => setSearchBox(false);
 
   return (
-    <div className="md:relative border fixed w-full min-h-[32px] bg-white top-[59px] md:top-0 left-0  flex md:rounded-md  items-center lg:px-2   lg:border lg:bg-[#f0f5ff]">
+    <div className="md:relative border fixed w-full min-h-[42px] bg-white top-[59px] md:top-0 left-0  flex md:rounded-md  items-center lg:px-2   lg:border lg:bg-[#f0f5ff]">
       <label className="px-1">
         <img src="/search.svg" className="w-6 lg:w-8 " 
         onClick={()=>setSearchBox(!searchBox)}

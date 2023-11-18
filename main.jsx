@@ -1,25 +1,23 @@
 import React from "react";
-import ReactDOM from 'react-dom/client'
-import App from "./src/App"
+import ReactDOM from "react-dom/client";
+import App from "./src/App";
 // console.log(import.meta.)
-import { ThemeContextProvider } from "./src/context/themeContext";
+import { SearchContextProvider } from "./src/context/searchContext";
 import { Provider } from "react-redux";
 import store from "./src/redux/store";
-import { register } from 'swiper/element/bundle';
+import { register } from "swiper/element/bundle";
 // register Swiper custom elements
 
-
-const root = ReactDOM.createRoot(document.getElementById("root"))
+const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(app())
 register();
 root.render(
-    <Provider store={store} >
-        <App />
-    </Provider>
-
-)
-
-
+  <Provider store={store}>
+    <SearchContextProvider>
+      <App />
+    </SearchContextProvider>
+  </Provider>
+);
 
 /*
 HMR Hot module replacement
