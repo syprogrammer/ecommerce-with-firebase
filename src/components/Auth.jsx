@@ -1,10 +1,6 @@
 import AuthLeft from "../components/AuthLeft";
 import { Link } from "react-router-dom";
-import {
-  signInWithPhoneNumber,
-  RecaptchaVerifier,
-  getAuth,
-} from "firebase/auth";
+import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -58,11 +54,11 @@ const Auth = ({
       });
   };
   return (
-    <div className="my-8 lg:my-4 flex flex-col lg:flex-row  lg:w-[60%] h-[70vh] mx-auto">
+    <div className="p-2 rounded-md h-full my-2 lg:my-4 flex flex-col lg:flex-row  lg:w-[60%]  mx-auto">
       <div className="lg:w-[40%] h-full">
         <AuthLeft heading={heading} subheading={subheading} />
       </div>
-      <div className="right lg:w-[60%] bg-white">
+      <div className="right lg:w-[60%] bg-white ">
         <form className="py-10 px-5">
           <input
             className="border-b p-1 w-full outline-none"
@@ -80,7 +76,7 @@ const Auth = ({
           >
             {mainbuttonText}
           </button>
-
+          <div id="recaptcha-container" className="recaptcha-container"></div>
           <Link to={secondbuttonLink}>
             <button
               id="sign-in-button"
@@ -91,7 +87,6 @@ const Auth = ({
           </Link>
         </form>
       </div>
-      <div id="recaptcha-container" className="recaptcha-container"></div>
     </div>
   );
 };

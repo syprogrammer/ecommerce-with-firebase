@@ -35,7 +35,7 @@ const AppLayout = () => {
         <div className="border-b-2 border-white h-[90px] lg:h-[60px]">
           <Navbar />
         </div>
-        <div className="bg-gray-100 min-h-[70vh]  pb-5">
+        <div className="bg-gray-100 min-h-[70vh] max-h-fit pb-5">
           <Outlet />
         </div>
         <Footer />
