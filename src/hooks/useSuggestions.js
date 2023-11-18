@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 const useSuggestions = (searchText) => {
+    if(searchText.length < 1){
+        searchText="trending"
+    }
     const [suggestions, setSuggestions] = useState("")
 
     useEffect(() => {

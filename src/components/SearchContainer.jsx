@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import useSuggestions from "../hooks/useSuggestions";
+import { pureFinalPropsSelectorFactory } from "react-redux/es/connect/selectorFactory";
 
 const SearchContainer = () => {
-  const [searchText, setSearchText] = useState("trending");
-  const [searchBox, setSearchBox] = useState(true);
+  const [searchText, setSearchText] = useState("");
+  const [searchBox, setSearchBox] = useState(false);
   const suggestionData = useSuggestions(searchText);
-  const openSearchBox = () => {
-    if (searchBox.length < 1) {
-      setSearchText("trending");
-    }
+  const openSearchBox = () => { 
     setSearchBox(true);
   };
+  
   const closeSearchBox = () => setSearchBox(false);
 
   return (

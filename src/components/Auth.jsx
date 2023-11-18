@@ -54,7 +54,7 @@ const Auth = ({
       });
   };
   return (
-    <div className="p-2 rounded-md h-full my-2 lg:my-4 flex flex-col lg:flex-row  lg:w-[60%]  mx-auto">
+    <div className="px-1 rounded-md h-full my-2 lg:my-4 flex flex-col lg:flex-row  lg:w-[60%]  mx-auto">
       <div className="lg:w-[40%] h-full">
         <AuthLeft heading={heading} subheading={subheading} />
       </div>
