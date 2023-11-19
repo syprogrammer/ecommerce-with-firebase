@@ -27,11 +27,9 @@ export default function Navbar() {
           </div>
         </Link>
       </div>
-      {showSearch && (
-        <div className="lg:w-1/2 h-fit ">
-          <SearchContainer />
-        </div>
-      )}
+
+      <div className="lg:w-1/2 h-fit ">{showSearch && <SearchContainer />}</div>
+
       <div className="menus flex w-[50%] md:w-1/3 ">
         <ul className="flex w-full justify-between">
           <li>
