@@ -23,7 +23,7 @@ const CarouselBanners = () => {
           className="carouselcards relative"
         >
           {carouselBanners.map((carouselImage) => (
-            <SwiperSlide>
+            <SwiperSlide key={carouselImage.largedevicebannersrc}>
               <picture
                 key={carouselImage.largedevicebannersrc}
                 className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"

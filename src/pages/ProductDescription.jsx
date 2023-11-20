@@ -5,8 +5,10 @@ import { addItem } from "../redux/slices/cartSlice";
 import RatingsAndReviews from "../components/RatingandReviews";
 import SimilarProducts from "../components/SimilarProducts";
 import DescriptionShimmer from "../components/shimmer/DescriptionShimmer";
+import { useState } from "react";
 
 const ProductDescription = () => {
+  const [pincode,setPincode] = useState("")
   const product = useProductDescription();
   // const product = false 
   console.log(product);
@@ -126,7 +128,8 @@ const ProductDescription = () => {
                 <input
                   type="text"
                   className="border-b border-b-blue-500 px-2 outline-none"
-                  value="201301"
+                  value={pincode}
+                  onChange={(e)=>setPincode(e.target.value)}
                 />
                 <span className="text-blue-700 font-medium">change</span>
               </div>

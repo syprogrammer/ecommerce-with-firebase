@@ -20,8 +20,8 @@ const SimilarProducts = ()=>{
             className="flex  gap-1">
             
             {products.map((prod) => (
-            <div className="shrink-0">
-                <ProductCard key={prod.id} {...prod} 
+            <div className="shrink-0" key={prod.id} >
+                <ProductCard {...prod} 
             />
             </div>
           ))}

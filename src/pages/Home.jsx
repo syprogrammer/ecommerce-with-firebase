@@ -7,8 +7,7 @@ import CarouselBanners from "../components/Carousel";
 
 
 export default function Home() {
-  const products = useProductsList();
-  console.log(products);
+ 
   return (
     <div className="mt-4 md:w-[90%] mx-auto flex flex-col gap-4">
       <div className="flex flex-col-reverse gap-4 md:flex-col ">

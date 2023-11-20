@@ -13,10 +13,12 @@ const Signup = () => {
   }, []);
   return (
     <Auth
+      type="signup"
       heading="Looks like you're new here!"
       subheading="Sign up with our mobile number to get started"
       mainbuttonText="Continue"
       secondbuttonText="Existing user?log in"
+      googlebuttonText="Signup with Google"
       secondbuttonLink="/login"
       redirectafterAuth="/editprofile"
     />

@@ -3,9 +3,9 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import "../index.css";
-import { Suspense, lazy, useContext } from "react";
+import { Suspense, lazy, useContext, useEffect } from "react";
 import RestaurantMenu from "./pages/ProductDescription";
 import Error from "./components/Error";
 
@@ -19,6 +19,10 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import EditProfile from "./pages/EditProfile";
 import Dashboard from "./pages/Dashboard";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "./firebase";
+import { saveToken } from "./redux/slices/userSlice";
+import useUserinfo from "./hooks/useUserinfo";
 const About = lazy(() => import("./pages/About"));
 
 const AppLayout = () => {
@@ -28,6 +32,30 @@ const AppLayout = () => {
   if (!isOnline) {
     return <div>You are offline please check your internet connection</div>;
   }
+
+  const userAuth = useSelector((store) => store.auth.userAuth);
+  // console.log("userauthtoken", user);
+  const dispatch = useDispatch();
+  
+  const getUserData =async(uid)=>{
+     const userData = await useUserinfo(uid)
+     console.log(userData) 
+  }
+  
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+        dispatch(
+          saveToken({
+            uid: user.uid,
+            token: user.accessToken,
+          })
+        ); 
+        getUserData(user.uid)
+      }
+    });
+  }, [auth, dispatch]);
 
   return (
     <>
@@ -64,7 +92,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login/>,
+        element: <Login />,
       },
       {
         path: "/signup",
@@ -72,7 +100,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/editprofile",
-        element: <EditProfile/>,
+        element: <EditProfile />,
       },
       {
         path: "/dashboard",

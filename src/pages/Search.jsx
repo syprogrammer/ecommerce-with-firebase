@@ -9,7 +9,6 @@ const Search = () => {
   const products = useProductsList();
   // const products = false
 
-
   return !products ? (
     <SearchShimmer />
   ) : (
@@ -23,6 +22,7 @@ const Search = () => {
       <div className="w-full lg:px-2 bg-white flex  flex-wrap  lg:justify-evenly">
         {products.map((prod) => (
           <Link
+            key={prod.id}
             to={`/product/${prod.id}`}
             className="w-1/2 md:w-1/3 lg:w-[220px]"
           >

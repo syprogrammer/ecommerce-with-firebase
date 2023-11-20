@@ -12,11 +12,13 @@ const Login = () => {
   }, []);
   return (
     <Auth
+      type="login"
       heading="Login"
       subheading="Get access to your Orders,
       Wishlist and Recommendations"
       mainbuttonText="Request Otp"
       secondbuttonText="New to Flipkart?create an account"
+      googlebuttonText="Login with Google"
       secondbuttonLink="/signup"
       redirectafterAuth="/editprofile"
     />

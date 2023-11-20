@@ -39,7 +39,7 @@ const Header = () => {
   return (
     <div className="flex flex-wrap justify-evenly py-2">
       {headerItems.map((headeritem) => (
-        <Link to={`/search/${headeritem.title}`}>
+        <Link to={`/search/${headeritem.title}`} key={headeritem.title}>
         <div key={headeritem.title} 
         className="flex flex-col items-center p-1">
           <img src={headeritem.src} className="w-14 md:w-10" />
