@@ -6,7 +6,9 @@ import { searchContext } from "../context/searchContext";
 
 export default function Navbar() {
   const cartItems = useSelector((store) => store.cart.items);
-  const userAuth = useSelector((store)=>store.auth.userAuth)
+  const userAuth = useSelector((store)=>store.auth.isAuthenticated)
+  const userData = useSelector((store)=>store.auth.userData)
+
   const { showSearch, openSearchBar, closeSearchBar } =
     useContext(searchContext);
   return (
@@ -42,11 +44,11 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/login">
+            <Link to="/dashboard">
               <div className="flex items-center gap-2">
                 <img src="/usericon.svg" />
                 <span className="hidden md:block">
-                  {userAuth?.token ? '':'Sign in'}
+                  {userAuth? userData?.name?.slice(0,2):'Sign in'}
                 </span>
               </div>
             </Link>

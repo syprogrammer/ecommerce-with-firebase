@@ -5,15 +5,13 @@ import { createSlice } from "@reduxjs/toolkit";
 export const authSlice = createSlice({
     name: "user",
     initialState: {
-        userAuth: {
-            token:undefined,
-        },
-       userData: undefined
+       isAuthenticated:false,
+       userData: {}
     },
     reducers: {
-        saveToken: function (state, action) {
+        saveUserAuth: function (state, action) {
             // console.log("authtoken", action.payload)
-            state.userAuth = action.payload
+            state.isAuthenticated = action.payload
         },
         saveUserData: function (state, action) {
             console.log("authtoken", action.payload)
@@ -22,5 +20,5 @@ export const authSlice = createSlice({
     }
 })
 
-export const { saveToken, saveUserData } = authSlice.actions
+export const { saveUserAuth, saveUserData } = authSlice.actions
 export default authSlice.reducer
