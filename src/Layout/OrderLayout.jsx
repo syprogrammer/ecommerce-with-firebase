@@ -1,9 +1,9 @@
 import React from 'react'
 import { Outlet } from "react-router-dom";
-import OrderHeader from '../pages/OrderHeader';
+
 const OrderLayout = () => {
   return (
-    <div className="nav">
+    <div className="bg-gray-100 min-h-[100vh]">
         
         <Outlet/>
     </div>

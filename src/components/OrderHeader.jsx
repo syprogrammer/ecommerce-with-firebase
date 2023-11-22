@@ -8,7 +8,7 @@ const OrderHeader = ({ title, step }) => {
         src="/orderstep2.png"
     }
   return (
-    <div className="flex flex-col">
+    <div className="bg-white flex flex-col shadow-md p-1">
       <div className="flex gap-5 p-3 border-b">
         <img src="/backarrow.svg  " />
         <span>{title}</span>

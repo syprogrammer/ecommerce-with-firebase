@@ -1,6 +1,6 @@
 import React from "react";
-import OrderHeader from "../pages/OrderHeader";
 import { Link } from "react-router-dom";
+import OrderHeader from "./OrderHeader";
 
 const OrderSummary = () => {
   return (
