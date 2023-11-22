@@ -56,8 +56,8 @@ const OrderAddress = () => {
           </div>
         ))}
       </form>
-      <div className="bg-orange-500 fixed bottom-0 w-full p-2 text-xl text-center text-white font-semibold">
-        <Link to="/order/summary">Deliver here</Link>
+      <div >
+        <Link to="/order/summary" className="bg-orange-500 fixed bottom-0 w-full p-3 text-xl text-center text-white font-semibold">Deliver here</Link>
       </div>
     </div>
   );
