@@ -39,13 +39,15 @@ const ProductDescription = () => {
                 <img src="/carticon2.svg" className="w-4" />
                 ADD TO CART
               </button>
+              <Link to="/order">
               <button
                 className="bg-orange-500 flex items-center justify-center gap-1 p-3 text-white rounded-sm w-40"
                 onClick={() => addProductToCart(product)}
               >
                 <img src="/lightingicon.png" className="w-5" />
-                <Link to="/order">BUY NOW</Link>
+                BUY NOW
               </button>
+              </Link>
             </div>
           </div>
         </div>

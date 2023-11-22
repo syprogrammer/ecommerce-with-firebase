@@ -19,7 +19,7 @@ const OrderAddress = () => {
         {["saurabh", "akash", "mohan", "ak"].map((name) => (
           <div
             key={name}
-            className="px-4 py-5 flex gap-4 items-start bg-white border"
+            className="px-4 py-5 flex gap-4 items-start bg-white border h-[50p1x]"
           >
             <input
               type="radio"
@@ -39,11 +39,13 @@ const OrderAddress = () => {
                       Home
                     </button>
                   </div>
-                  {address == name && (
+                  <div className="h-5">
+                    {address == name && (
                     <button className="text-blue-700 shadow-md border py-1 px-4 text-sm">
                       Edit
                     </button>
                   )}
+                  </div>
                 </div>
                 <p className="w-[70%]">
                   yadav mobile garhi chaukhandi sec-68 noida uttar
