@@ -35,7 +35,7 @@ const Cart = () => {
 
         {cartItems.map((product) => (
           <div className="mt-2 p-2 bg-white">
-            <CartCard product={product} />
+            <CartCard product={product} removebtn={true}/>
           </div>
         ))}
       </div>

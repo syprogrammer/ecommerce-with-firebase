@@ -5,7 +5,7 @@ import {
   removeItem,
 } from "../redux/slices/cartSlice";
 
-const CartCard = ({ product }) => {
+const CartCard = ({ product, removebtn }) => {
   console.log("from cart", product);
 
   const dispatch = useDispatch();
@@ -61,10 +61,12 @@ const CartCard = ({ product }) => {
             </div>
           </div>
 
-          <div className="flex gap-4 font-medium text-gray-800 text-sm">
-            <button>SAVE FOR LATER</button>
-            <button onClick={() => removeProduct(product.id)}>REMOVE</button>
-          </div>
+          {removebtn && (
+            <div className="flex gap-4 font-medium text-gray-800 text-sm">
+              <button>SAVE FOR LATER</button>
+              <button onClick={() => removeProduct(product.id)}>REMOVE</button>
+            </div>
+          )}
         </div>
       </div>
 
