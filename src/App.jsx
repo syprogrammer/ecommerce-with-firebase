@@ -25,6 +25,10 @@ import Dashboard from "./pages/Dashboard";
 import { useSelector } from "react-redux";
 //layouts
 import AppLayout from "./Layout/AppLayout";
+import OrderLayout from "./Layout/OrderLayout";
+import OrderAddress from "./components/OrderAddress";
+import OrderSummary from "./components/OrderSummary";
+import OrderPayment from "./components/OrderPayment";
 
 const About = lazy(() => import("./pages/About"));
 
@@ -32,7 +36,11 @@ export default function App() {
 
   const isAuthenticated = useAuth();
   console.log("authenticated", isAuthenticated);
-  // const isOnline = useOnlineStatus();
+  const isOnline = useOnlineStatus();
+  console.log("online",isOnline)
+  if(!isOnline){
+    return <h1>User is offline</h1>
+  }
   const userData = useSelector((store) => store.auth.userData);
 
   
@@ -106,7 +114,25 @@ export default function App() {
           element: <ProductDescription />,
         },
       ],
-    },
+    },{
+      path: "/order",
+      element: <OrderLayout/>,
+      errorElement: <Error />,
+      children: [
+        {
+          path: "/order",
+          element:<OrderAddress/>
+        },
+        {
+          path: "/order/summary",
+          element:<OrderSummary/>
+        },
+        {
+          path: "/order/payment",
+          element:<OrderPayment/>
+        },
+      ]
+    }
   ]);
 
   return <RouterProvider router={appRouter} />;

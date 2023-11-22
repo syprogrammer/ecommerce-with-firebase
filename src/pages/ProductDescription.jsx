@@ -1,4 +1,3 @@
-
 import useProductDescription from "../hooks/useProductDescription";
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/slices/cartSlice";
@@ -6,11 +5,12 @@ import RatingsAndReviews from "../components/RatingandReviews";
 import SimilarProducts from "../components/SimilarProducts";
 import DescriptionShimmer from "../components/shimmer/DescriptionShimmer";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProductDescription = () => {
-  const [pincode,setPincode] = useState("")
+  const [pincode, setPincode] = useState("");
   const product = useProductDescription();
-  // const product = false 
+  // const product = false
   console.log(product);
   const dispatch = useDispatch();
 
@@ -44,7 +44,7 @@ const ProductDescription = () => {
                 onClick={() => addProductToCart(product)}
               >
                 <img src="/lightingicon.png" className="w-5" />
-                BUY NOW
+                <Link to="/order">BUY NOW</Link>
               </button>
             </div>
           </div>
@@ -129,7 +129,7 @@ const ProductDescription = () => {
                   type="text"
                   className="border-b border-b-blue-500 px-2 outline-none"
                   value={pincode}
-                  onChange={(e)=>setPincode(e.target.value)}
+                  onChange={(e) => setPincode(e.target.value)}
                 />
                 <span className="text-blue-700 font-medium">change</span>
               </div>
