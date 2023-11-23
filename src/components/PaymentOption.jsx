@@ -1,6 +1,7 @@
 import React from "react";
 
 const PaymentOption = ({
+  id,
   title,
   subtitle,
   imgsrc,
@@ -9,16 +10,25 @@ const PaymentOption = ({
 }) => {
   return (
     <>
-      <div className="justify-between">
+      <div className="flex gap-5 items-start">
         <input
           type="radio"
           name="Saurabh yadav"
-          value="yadav mobile garhi chaukhandi sec-68 noida uttar pradesh-201301"
-          id={title}
-          checked={paymentMethod == title}
+          value="Paytm Upi"
+          id={id}
+          checked={paymentMethod == id}
           onChange={(e) => setPaymentMethod(e.target.id)}
           className="mt-2"
         />
+        <label htmlFor={id} className="w-full">
+         <div className="flex justify-between items-start">
+          <div>
+            <p>{title}</p>
+            <p className="text-gray-500 text-sm">{subtitle}</p>
+          </div>
+          <img src={imgsrc} className="w-10 -mt-2"/>
+         </div>
+        </label>
       </div>
     </>
   );
