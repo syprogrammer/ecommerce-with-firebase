@@ -72,6 +72,14 @@ const OrderPayment = () => {
             paymentMethod={paymentMethod}
             setPaymentMethod={setPaymentMethod}
           />
+          <PaymentOption
+            id="codpayment"
+            title="Cash on Delivery"
+            subtitle=""
+            imgsrc=""
+            paymentMethod={paymentMethod}
+            setPaymentMethod={setPaymentMethod}
+          />
         </div>
       </form>
       <div className="flex flex-col pb-20">
