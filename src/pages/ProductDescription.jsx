@@ -17,7 +17,9 @@ const ProductDescription = () => {
   const addProductToCart = (item) => {
     dispatch(addItem(item));
   };
-
+  const handleBuy = (item) => {
+    addProductToCart(item);
+  };
   return product ? (
     <div className="lg:max-w-[90%] mx-auto">
       <div className="flex flex-col lg:flex-row justify-evenly  mx-auto bg-white py-10 px-5 ">
@@ -39,14 +41,11 @@ const ProductDescription = () => {
                 <img src="/carticon2.svg" className="w-4" />
                 ADD TO CART
               </button>
-              <Link to="/order">
-              <button
-                className="bg-orange-500 flex items-center justify-center gap-1 p-3 text-white rounded-sm w-40"
-                onClick={() => addProductToCart(product)}
-              >
-                <img src="/lightingicon.png" className="w-5" />
-                BUY NOW
-              </button>
+              <Link onClick={() => addProductToCart(product)} to="/order">
+                <button className="bg-orange-500 flex items-center justify-center gap-1 p-3 text-white rounded-sm w-40">
+                  <img src="/lightingicon.png" className="w-5" />
+                  BUY NOW
+                </button>
               </Link>
             </div>
           </div>

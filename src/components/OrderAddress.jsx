@@ -10,7 +10,7 @@ const OrderAddress = () => {
   console.log(address);
   return (
     <div className="container">
-      <OrderHeader title="Select Address" step={1} />
+      <OrderHeader title="Select Address" step={1} backlink="/"/>
       <div className="bg-white cursor-pointer text-blue-500 my-1 shadow-md p-4">
         <span className="text-2xl mx-2">+</span>
         <span>Add a new address</span>
