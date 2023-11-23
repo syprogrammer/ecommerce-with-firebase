@@ -8,6 +8,7 @@ import store from "./src/redux/store";
 import { register } from "swiper/element/bundle";
 // register Swiper custom elements
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(app())
 register();
