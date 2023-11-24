@@ -11,7 +11,7 @@ const OrderLayout = () => {
   }
   return (
     <div className="bg-gray-100 min-h-[100vh]">
-      <div className="border-b-2 border-white h-[90px] lg:h-[60px]">
+      <div className="hidden lg:inline-flex border-b-2 border-white h-[90px] lg:h-[60px]">
         <Navbar />
       </div>
       <div className="border   w-full lg:w-[70%] mx-auto">

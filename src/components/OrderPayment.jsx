@@ -82,8 +82,8 @@ const OrderPayment = () => {
           />
         </div>
       </form>
-      <div className="lg:hidden">
-        <img src="/paymentsafetylabel.svg" />
+      <div className="lg:hidden pb-16">
+        <img src="/paymentsafetylabel.svg" className="w-full" />
         <img src="/safteylabelbadge.png"/>
       </div>
       <div className="hidden lg:flex items-center justify-center w-[50%] gap-4 mx-auto">
