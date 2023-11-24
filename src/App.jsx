@@ -87,7 +87,11 @@ export default function App() {
     },
     {
       path: "/order",
-      element: <OrderLayout />,
+      element: (
+        <ProtectedRoute>
+          <OrderLayout />
+        </ProtectedRoute>
+      ),
       errorElement: <Error />,
       children: [
         {

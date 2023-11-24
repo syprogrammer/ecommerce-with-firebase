@@ -48,8 +48,7 @@ const OrderAddress = () => {
                   </div>
                 </div>
                 <p className="w-[70%]">
-                  yadav mobile garhi chaukhandi sec-68 noida uttar
-                  pradesh-201301
+                  No H69, Outer Circle Connaught Circus New Delhi - 110001
                 </p>
               </div>
             </label>
