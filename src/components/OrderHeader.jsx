@@ -12,14 +12,14 @@ const OrderHeader = ({ title, step, backlink }) => {
   }
   return (
     <div className="bg-white flex flex-col shadow-md p-1">
-      <div className="flex gap-5 p-3 border-b">
+      <div className="flex gap-5 p-3 border-b ">
         <Link to={backlink}>
           <img src="/backarrow.svg  " />
         </Link>
         <span>{title}</span>
       </div>
-      <div className="flex justify-evenly p-1">
-        <img src={src} />
+      <div className="flex justify-evenly ">
+        <img src={src} className=""/>
       </div>
     </div>
   );

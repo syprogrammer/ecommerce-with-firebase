@@ -12,7 +12,7 @@ const OrderSummary = () => {
       <OrderHeader title="Order Summary" step={2} backlink="/order" />
 
       {/* ------------middle section------------------- */}
-      <div className="bg-white p-5">
+      <div className="bg-white p-5 border-t ">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
@@ -35,7 +35,7 @@ const OrderSummary = () => {
 
       {/* ------------middle section end ------------------- */}
 
-      <div className="shadow-inner bg-white fixed w-full p-2 bottom-0 flex items-center justify-between">
+      <div className="shadow-inner bg-white fixed lg:sticky w-full p-2 bottom-0 flex items-center justify-between">
         <div className="flex flex-col ">
           <span className="text-gray-400 line-through leading-5">49,900</span>
           <span className="text-xl leading-5">{totalPrice}</span>

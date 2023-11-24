@@ -10,7 +10,7 @@ const PaymentOption = ({
 }) => {
   return (
     <>
-      <div className="flex gap-5 items-start">
+      <div className="flex gap-5 items-start  border-b pb-2 px-4 border-b-slate-100">
         <input
           type="radio"
           name="Saurabh yadav"
@@ -20,7 +20,7 @@ const PaymentOption = ({
           onChange={(e) => setPaymentMethod(e.target.id)}
           className="mt-2"
         />
-        <label htmlFor={id} className="w-full">
+        <label htmlFor={id} className="w-full cursor-pointer">
          <div className="flex justify-between items-start">
           <div>
             <p>{title}</p>

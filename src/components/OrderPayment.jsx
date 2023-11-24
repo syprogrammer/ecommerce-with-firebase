@@ -15,15 +15,15 @@ const OrderPayment = () => {
       {/* ---------------------middle section--- */}
 
       {/* -------------bankoffer---------- */}
-      <div className="flex flex-col  bg-white p-2 my-2">
-        <div className="flex justify-between items-center">
-          <div className="flex gap-4 items-center py-2">
+      <div className="flex flex-col  bg-white p-2 my-2 cursor-pointer">
+        <div className="flex justify-between items-center ">
+          <div className="flex gap-4 items-center py-2 ">
             <img src="/axisbanklogo.svg" className="w-5" />
             <p className="text-sm">5% Cashback on Flipkart Axis Bank Card</p>
           </div>
           <img src="/rightarrow.svg" />
         </div>
-        <p className="text-center text-blue-700 border-t py-2">
+        <p className="text-center cursor-pointer text-blue-700 border-t py-2">
           View All Offers
         </p>
       </div>
@@ -82,13 +82,17 @@ const OrderPayment = () => {
           />
         </div>
       </form>
-      <div className="flex flex-col pb-20">
+      <div className="lg:hidden">
         <img src="/paymentsafetylabel.svg" />
-        <img src="/safteylabelbadge.png" />
+        <img src="/safteylabelbadge.png"/>
+      </div>
+      <div className="hidden lg:flex items-center justify-center w-[50%] gap-4 mx-auto">
+        <img src="/safeandsecure.png"/>
+        <p className="text-gray-700">Safe and Secure and Payments. Easy Returns. 100% Authentic products</p>
       </div>
       {/* --------------------------end middlesection--------- */}
 
-      <div className="shadow-inner bg-white fixed w-full p-2 bottom-0 flex items-center justify-between">
+      <div className="shadow-inner bg-white fixed lg:sticky w-full p-2 bottom-0 flex items-center justify-between">
         <div className="flex flex-col ">
           <span className="text-gray-400 line-through leading-5">
             {totalPrice + 799}
@@ -98,7 +102,7 @@ const OrderPayment = () => {
         </div>
 
         <Link
-          to="/order/payment"
+          to="/dashboard"
           className="bg-yellow-400 py-2 w-1/3 text-center rounded-md"
         >
           continue

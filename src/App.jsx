@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import { Suspense, lazy} from "react";
+import { Suspense, lazy } from "react";
 import Error from "./components/Error";
 
 //custom hooks
@@ -29,21 +29,19 @@ import OrderLayout from "./Layout/OrderLayout";
 import OrderAddress from "./components/OrderAddress";
 import OrderSummary from "./components/OrderSummary";
 import OrderPayment from "./components/OrderPayment";
+import DashboardLayout from "./Layout/DashboardLayout";
 
 const About = lazy(() => import("./pages/About"));
 
 export default function App() {
-
   const isAuthenticated = useAuth();
   console.log("authenticated", isAuthenticated);
   const isOnline = useOnlineStatus();
-  console.log("online",isOnline)
-  if(!isOnline){
-    return <h1>User is offline</h1>
+  console.log("online", isOnline);
+  if (!isOnline) {
+    return <h1>User is offline</h1>;
   }
   const userData = useSelector((store) => store.auth.userData);
-
-  
 
   const ProtectedRoute = ({ children }) => {
     if (!isAuthenticated) {
@@ -62,14 +60,6 @@ export default function App() {
       errorElement: <Error />,
       children: [
         {
-          path: "/about",
-          element: (
-            <Suspense>
-              <About />
-            </Suspense>
-          ),
-        },
-        {
           path: "/",
           element: <Home />,
         },
@@ -82,22 +72,6 @@ export default function App() {
           element: <Signup />,
         },
         {
-          path: "/editprofile",
-          element: (
-            <ProtectedRoute>
-              <EditProfile />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "/dashboard",
-          element: (
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          ),
-        },
-        {
           path: "/search/:searchquery",
           element: <Search />,
         },
@@ -106,33 +80,45 @@ export default function App() {
           element: <Cart />,
         },
         {
-          path: "/payment",
-          element: <Payment />,
-        },
-        {
           path: "/product/:prodId",
           element: <ProductDescription />,
         },
       ],
-    },{
+    },
+    {
       path: "/order",
-      element: <OrderLayout/>,
+      element: <OrderLayout />,
       errorElement: <Error />,
       children: [
         {
           path: "/order",
-          element:<OrderAddress/>
+          element: <OrderAddress />,
         },
         {
           path: "/order/summary",
-          element:<OrderSummary/>
+          element: <OrderSummary />,
         },
         {
           path: "/order/payment",
-          element:<OrderPayment/>
+          element: <OrderPayment />,
         },
-      ]
-    }
+      ],
+    },
+    {
+      path: "/dashboard",
+      element: (
+        <ProtectedRoute>
+          <DashboardLayout />
+        </ProtectedRoute>
+      ),
+      errorElement: <Error />,
+      children: [
+        {
+          path: "/dashboard",
+          element: <Dashboard />,
+        },
+      ],
+    },
   ]);
 
   return <RouterProvider router={appRouter} />;

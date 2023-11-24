@@ -10,12 +10,12 @@ const OrderAddress = () => {
   console.log(address);
   return (
     <div className="container">
-      <OrderHeader title="Select Address" step={1} backlink="/"/>
+      <OrderHeader title="Select Address" step={1} backlink="/" />
       <div className="bg-white cursor-pointer text-blue-500 my-1 shadow-md p-4">
         <span className="text-2xl mx-2">+</span>
         <span>Add a new address</span>
       </div>
-      <form className="pb-16" onSubmit={submit}>
+      <form className="pb-16 lg:pb-2" onSubmit={submit}>
         {["saurabh", "akash", "mohan", "ak"].map((name) => (
           <div
             key={name}
@@ -41,10 +41,10 @@ const OrderAddress = () => {
                   </div>
                   <div className="h-5">
                     {address == name && (
-                    <button className="text-blue-700 shadow-md border py-1 px-4 text-sm">
-                      Edit
-                    </button>
-                  )}
+                      <button className="text-blue-700 shadow-md border py-1 px-4 text-sm">
+                        Edit
+                      </button>
+                    )}
                   </div>
                 </div>
                 <p className="w-[70%]">
@@ -56,9 +56,11 @@ const OrderAddress = () => {
           </div>
         ))}
       </form>
-      <div >
-        <Link to="/order/summary" className="bg-orange-500 fixed bottom-0 w-full p-3 text-xl text-center text-white font-semibold">Deliver here</Link>
-      </div>
+      <Link to="/order/summary">
+        <div className="bg-orange-500 fixed lg:sticky bottom-0 w-full p-3 text-xl text-center text-white font-semibold">
+          Deliver here
+        </div>
+      </Link>
     </div>
   );
 };

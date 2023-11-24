@@ -28,9 +28,11 @@ const Cart = () => {
           </button>
         </div>
         <div className="bg-white p-5 flex justify-between items-center ">
-          <button className="bg-orange-600 text-white font-medium py-2 px-5">
+        <Link to="/order">
+        <button className="bg-orange-600 text-white font-medium py-2 px-5">
             Place Order
           </button>
+        </Link>
         </div>
 
         {cartItems.map((product) => (
