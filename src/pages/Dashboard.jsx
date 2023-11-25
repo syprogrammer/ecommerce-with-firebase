@@ -96,8 +96,8 @@ const Dashboard = () => {
           {accountsettings.map((setting) => (
             <div key={setting.id} className="flex justify-between">
               <div className="flex gap-2 items-center">
-                <img src={setting.imgsrc} />
-                <span>{setting.title}</span>
+                <img src={setting.imgsrc} className="w-5"/>
+                <span className="text-sm">{setting.title}</span>
               </div>
               <img src="/rightarrowicon.svg" className="w-3" />
             </div>
@@ -111,8 +111,8 @@ const Dashboard = () => {
           {myactivity.map((activity) => (
             <div key={activity.id} className="flex justify-between">
               <div className="flex gap-2 items-center">
-                <img src={activity.imgsrc} />
-                <span>{activity.title}</span>
+                <img src={activity.imgsrc} className="w-5"/>
+                <span className="text-sm">{activity.title}</span>
               </div>
               <img src="/rightarrowicon.svg" className="w-3" />
             </div>
@@ -120,22 +120,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="bg-white my-2 p-2">
-        <h3 className="text-lg font-semibold pb-2 border-b">
-          Account Settings
-        </h3>
-        <div className="flex flex-col gap-5 py-2">
-          {accountsettings.map((setting) => (
-            <div key={setting.id} className="flex justify-between">
-              <div className="flex gap-2 items-center">
-                <img src={setting.imgsrc} />
-                <span>{setting.title}</span>
-              </div>
-              <img src="/rightarrowicon.svg" className="w-3" />
-            </div>
-          ))}
-        </div>
-      </div>
+     
 
       <div className="bg-white my-2 p-2">
         <h3 className="text-lg font-semibold pb-2 border-b">Feedback & Information</h3>
@@ -143,8 +128,8 @@ const Dashboard = () => {
           {feedback.map((feedback) => (
             <div key={feedback.id} className="flex justify-between">
               <div className="flex gap-2 items-center">
-                <img src={feedback.imgsrc} className="w-6" />
-                <span>{feedback.title}</span>
+                <img src={feedback.imgsrc} className="w-5" />
+                <span className="text-sm">{feedback.title}</span>
               </div>
               <img src="/rightarrowicon.svg" className="w-3" />
             </div>
