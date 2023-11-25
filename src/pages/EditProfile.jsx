@@ -22,10 +22,11 @@ const EditProfile = () => {
   const userData = useSelector((store) => store.auth.userData);
 
   useEffect(() => {
-    console.log("from profile ", userData, !address.city);
-    if (address.city) {
-      setProfile(profile);
-      setAddress(address);
+    console.log("from profile ", userData, !userData?.address?.city);
+    if (userData?.address?.city) {
+      console.log("inside if")
+      setProfile(userData.profile);
+      setAddress(userData.address);
     }
   }, [userData]);
 
