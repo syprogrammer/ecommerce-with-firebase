@@ -47,8 +47,8 @@ export default function App() {
     if (!isAuthenticated) {
       console.log("not authenticated");
       return <Navigate to="/login" />;
-    } else if (!userData.name) {
-      return <Navigate to="/editprofile" />;
+    } else if (!userData) {
+      return <Navigate to="/dashboard/editprofile" />;
     }
     return children;
   };
@@ -120,6 +120,10 @@ export default function App() {
         {
           path: "/dashboard",
           element: <Dashboard />,
+        },
+        {
+          path: "/dashboard/editprofile",
+          element: <EditProfile/>,
         },
       ],
     },
