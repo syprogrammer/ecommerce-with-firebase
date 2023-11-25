@@ -6,26 +6,26 @@ import { useSelector } from "react-redux";
 const EditProfile = () => {
   const [updated, setUpdated] = useState(false);
   const [profile, setProfile] = useState({
-    name: "notprovided",
-    email: "notprovided",
-    altmobileno: "notprovided",
-    altemail: "notprovided",
+    name: "",
+    email: "",
+    altmobileno: "",
+    altemail: "",
   });
   const [address, setAddress] = useState({
-    city: "notprovided",
-    pincode: "notprovided",
-    state: "notprovided",
-    locality: "notprovided",
+    city: "",
+    pincode: "",
+    state: "",
+    locality: "",
   });
 
   const uid = useSelector((store) => store.auth.userAuth.uid);
   const userData = useSelector((store) => store.auth.userData);
 
   useEffect(() => {
-    console.log("from profile ", userData, !userData.address.city);
-    if (userData.address.city) {
-      setProfile(userData.profile);
-      setAddress(userData.address);
+    console.log("from profile ", userData, !address.city);
+    if (address.city) {
+      setProfile(profile);
+      setAddress(address);
     }
   }, [userData]);
 
@@ -59,7 +59,7 @@ const EditProfile = () => {
           <input
             className="border px-4 py-2 rounded-md w-full outline-blue-500"
             id="name"
-            value={userData.profile.name}
+            value={profile.name}
             type="text"
             required
             minLength={2}
@@ -72,7 +72,7 @@ const EditProfile = () => {
           <input
             className="border px-4 py-2 rounded-md w-full outline-blue-500"
             id="email"
-            value={userData.profile.email}
+            value={profile.email}
             type="email"
             required
             onChange={handleProfileChange}
@@ -83,7 +83,7 @@ const EditProfile = () => {
           <input
             className="border px-4 py-2 rounded-md w-full outline-blue-500"
             id="altmobileno"
-            value={userData.profile.altmobileno}
+            value={profile.altmobileno}
             type="text"
             minLength={10}
             maxLength={10}
@@ -95,7 +95,7 @@ const EditProfile = () => {
           <input
             className="border px-4 py-2 rounded-md w-full outline-blue-500"
             id="altemail"
-            value={userData.profile.altemail}
+            value={profile.altemail}
             type="email"
             onChange={handleProfileChange}
           />
@@ -107,7 +107,7 @@ const EditProfile = () => {
             <input
               className="border px-4 py-2 rounded-md w-full outline-blue-500"
               id="city"
-              value={userData.address.city}
+              value={address.city}
               type="text"
               minLength={4}
               maxLength={15}
@@ -119,7 +119,7 @@ const EditProfile = () => {
             <input
               className="border px-4 py-2 rounded-md w-full outline-blue-500"
               id="pincode"
-              value={userData.address.pincode}
+              value={address.pincode}
               type="text"
               minLength={6}
               maxLength={6}
@@ -131,7 +131,7 @@ const EditProfile = () => {
             <input
               className="border px-4 py-2 rounded-md w-full outline-blue-500"
               id="state"
-              value={userData.address.state}
+              value={address.state}
               type="text"
               minLength={4}
               maxLength={15}
@@ -143,7 +143,7 @@ const EditProfile = () => {
             <input
               className="border px-4 py-2 rounded-md w-full outline-blue-500"
               id="locality"
-              value={userData.address.locality}
+              value={address.locality}
               type="text"
               minLength={4}
               maxLength={15}
