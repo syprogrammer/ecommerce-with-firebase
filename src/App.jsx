@@ -92,7 +92,7 @@ export default function App() {
           <OrderLayout />
         </ProtectedRoute>
       ),
-      errorElement: <Error />,
+      // errorElement: <Error />,
       children: [
         {
           path: "/order",
@@ -115,7 +115,7 @@ export default function App() {
           <DashboardLayout />
         </ProtectedRoute>
       ),
-      errorElement: <Error />,
+      // errorElement: <Error />,
       children: [
         {
           path: "/dashboard",
