@@ -42,16 +42,19 @@ export default function App() {
     return <h1>User is offline</h1>;
   }
   const userData = useSelector((store) => store.auth.userData);
-
+  console.log(userData, "and ", userData.name == "nouser");
   const ProtectedRoute = ({ children }) => {
     if (!isAuthenticated) {
       console.log("not authenticated");
       return <Navigate to="/login" />;
-    } else if (!userData) {
-      return <Navigate to="/dashboard/editprofile" />;
+    }
+    if (userData.name == "nouser") {
+      return <Navigate to="/editprofile" />;
     }
     return children;
   };
+
+
 
   const appRouter = createBrowserRouter([
     {
@@ -70,6 +73,10 @@ export default function App() {
         {
           path: "/signup",
           element: <Signup />,
+        },
+        {
+          path: "/editprofile",
+          element: <EditProfile />,
         },
         {
           path: "/search/:searchquery",
@@ -112,7 +119,9 @@ export default function App() {
       path: "/dashboard",
       element: (
         <ProtectedRoute>
-          <DashboardLayout />
+       
+            <DashboardLayout />
+
         </ProtectedRoute>
       ),
       // errorElement: <Error />,
@@ -123,7 +132,7 @@ export default function App() {
         },
         {
           path: "/dashboard/editprofile",
-          element: <EditProfile/>,
+          element: <EditProfile />,
         },
       ],
     },

@@ -1,19 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import { useSelector } from "react-redux";
 
 const EditProfile = () => {
+  const [updated, setUpdated] = useState(false);
+  const [profile, setProfile] = useState({
+    name: "notprovided",
+    email: "notprovided",
+    altmobileno: "notprovided",
+    altemail: "notprovided",
+  });
+  const [address, setAddress] = useState({
+    city: "notprovided",
+    pincode: "notprovided",
+    state: "notprovided",
+    locality: "notprovided",
+  });
+
+  const uid = useSelector((store) => store.auth.userAuth.uid);
+  const userData = useSelector((store) => store.auth.userData);
+
+  useEffect(() => {
+    console.log("from profile ", userData, !userData.address.city);
+    if (userData.address.city) {
+      setProfile(userData.profile);
+      setAddress(userData.address);
+    }
+  }, [userData]);
+
+  const handleProfileChange = (e) => {
+    setProfile({ ...profile, [e.target.id]: e.target.value });
+  };
+  const handleAddressChange = (e) => {
+    setAddress({ ...address, [e.target.id]: e.target.value });
+  };
+  console.log(profile, address);
+  const SaveProfile = async (e) => {
+    e.preventDefault();
+    // Add a new document in collection "cities"
+    await setDoc(doc(db, "users", uid), {
+      profile: profile,
+      address: address,
+    });
+    setUpdated(true);
+  };
   return (
     <div className="bg-white w-full lg:w-[80%] mx-auto my-5 p-4 rounded-md">
       <h1 className="mt-5 w-full mb-8 font-semibold text-xl">
         Complete Your profile
       </h1>
-      <form className=" flex flex-wrap flex-col lg:flex-row gap-5">
+      <form
+        onSubmit={SaveProfile}
+        className=" flex flex-wrap flex-col lg:flex-row gap-5"
+      >
         <div className="flex flex-col gap-2 lg:w-[48%]">
           <label htmlFor="name">Name</label>
           <input
             className="border px-4 py-2 rounded-md w-full outline-blue-500"
             id="name"
+            value={userData.profile.name}
             type="text"
             required
+            minLength={2}
+            maxLength={10}
+            onChange={handleProfileChange}
           />
         </div>
         <div className="flex flex-col gap-2 lg:w-[48%]">
@@ -21,16 +72,22 @@ const EditProfile = () => {
           <input
             className="border px-4 py-2 rounded-md w-full outline-blue-500"
             id="email"
+            value={userData.profile.email}
             type="email"
             required
+            onChange={handleProfileChange}
           />
         </div>
         <div className="flex flex-col gap-2 lg:w-[48%]">
           <label htmlFor="altmob">Alternate Mobile Number</label>
           <input
             className="border px-4 py-2 rounded-md w-full outline-blue-500"
-            id="altmob"
+            id="altmobileno"
+            value={userData.profile.altmobileno}
             type="text"
+            minLength={10}
+            maxLength={10}
+            onChange={handleProfileChange}
           />
         </div>
         <div className="flex flex-col gap-2 lg:w-[48%]">
@@ -38,7 +95,9 @@ const EditProfile = () => {
           <input
             className="border px-4 py-2 rounded-md w-full outline-blue-500"
             id="altemail"
+            value={userData.profile.altemail}
             type="email"
+            onChange={handleProfileChange}
           />
         </div>
         <h1 className="w-full mt-5 mb-8 font-semibold text-xl">Address</h1>
@@ -48,7 +107,11 @@ const EditProfile = () => {
             <input
               className="border px-4 py-2 rounded-md w-full outline-blue-500"
               id="city"
-              type="email"
+              value={userData.address.city}
+              type="text"
+              minLength={4}
+              maxLength={15}
+              onChange={handleAddressChange}
             />
           </div>
           <div className="flex flex-col gap-2 lg:w-[48%]">
@@ -56,7 +119,11 @@ const EditProfile = () => {
             <input
               className="border px-4 py-2 rounded-md w-full outline-blue-500"
               id="pincode"
-              type="email"
+              value={userData.address.pincode}
+              type="text"
+              minLength={6}
+              maxLength={6}
+              onChange={handleAddressChange}
             />
           </div>
           <div className="flex flex-col gap-2 lg:w-[48%]">
@@ -64,7 +131,11 @@ const EditProfile = () => {
             <input
               className="border px-4 py-2 rounded-md w-full outline-blue-500"
               id="state"
-              type="email"
+              value={userData.address.state}
+              type="text"
+              minLength={4}
+              maxLength={15}
+              onChange={handleAddressChange}
             />
           </div>
           <div className="flex flex-col gap-2 lg:w-[48%]">
@@ -72,12 +143,20 @@ const EditProfile = () => {
             <input
               className="border px-4 py-2 rounded-md w-full outline-blue-500"
               id="locality"
-              type="email"
+              value={userData.address.locality}
+              type="text"
+              minLength={4}
+              maxLength={15}
+              onChange={handleAddressChange}
             />
           </div>
         </div>
-        <button className="bg-blue-400 w-full p-2 hover:bg-blue-500 rounded-md text-white font-semibold text-2xl">
-          Save
+        <button
+          disabled={updated}
+          style={{backgroundColor:updated?"gray":"#fb641b"}}
+          className="bg-orange-400 w-full p-2  rounded-md text-white font-semibold text-lg"
+        >
+          {updated ? "Saved Successfully" : "Save"}
         </button>
       </form>
     </div>

@@ -10,7 +10,10 @@ const useAuth = () => {
     const dispatch = useDispatch();
     const getUserData =async(uid)=>{
         const userData = await getUserinfo(uid)
-        dispatch(saveUserData(userData))
+        if(userData){
+          dispatch(saveUserData(userData))
+        }
+        
         console.log("userData",userData) 
      }
      
@@ -20,7 +23,10 @@ const useAuth = () => {
            console.log(user);
            setIsAuthenticated(true)
            dispatch(
-            saveUserAuth(true)
+            saveUserAuth({
+              isAuthenticated:true,
+              uid:user.uid
+            })
            ); 
            getUserData(user.uid)
          }

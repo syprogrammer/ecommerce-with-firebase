@@ -6,7 +6,7 @@ import { searchContext } from "../context/searchContext";
 
 export default function Navbar() {
   const cartItems = useSelector((store) => store.cart.items);
-  const userAuth = useSelector((store)=>store.auth.isAuthenticated)
+  const userAuth = useSelector((store)=>store.auth.userAuth.isAuthenticated)
   const userData = useSelector((store)=>store.auth.userData)
 
   const { showSearch, openSearchBar, closeSearchBar } =

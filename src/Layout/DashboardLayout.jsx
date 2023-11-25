@@ -12,7 +12,7 @@ const DashboardLayout = () => {
           <Link to="/">
             <img src="/backarrow.svg  " />
           </Link>
-          <span className="font-semibold">hey! {userData?.name}</span>
+          <span className="font-semibold">hey! {userData?.profile?.name}</span>
         </div>
         <div className="flex items-center gap-2 pl-10">
         <img src="/pluspremium.png" className="w-28"/>
