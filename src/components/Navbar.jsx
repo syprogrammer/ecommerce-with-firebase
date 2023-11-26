@@ -46,9 +46,9 @@ export default function Navbar() {
           <li>
             <Link to="/dashboard">
               <div className="flex items-center gap-2">
-                <img src="/usercircleicon.svg" />
+                <img src={userAuth?"/userok.svg":"/usercircleicon.svg" }/>
                 <span className="hidden md:block">
-                  {userAuth? userData?.name?.slice(0,2):'Sign in'}
+                  {userAuth? userData?.profile?.name?.slice(0,1):'Sign in'}
                 </span>
               </div>
             </Link>

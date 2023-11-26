@@ -1,20 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const nav = [
   {
     title: "Orders",
-    imgsrc: "/ordersicon.svg",
+    imgsrc: "/ordersicon.png",
+    link: "/dashboard/orderslist",
   },
   {
     title: "Wishlist",
-    imgsrc: "/hearticon.svg",
+    imgsrc: "/hearticon.png",
+    link: "/dashboard",
   },
   {
     title: "Coupons",
-    imgsrc: "/gifticon.svg",
+    imgsrc: "/gifticon.png",
+    link: "/dashboard",
   },
   {
     title: "Help Center",
-    imgsrc: "/micicon.svg",
+    imgsrc: "/micicon.png",
+    link: "/dashboard",
   },
 ];
 const accountsettings = [
@@ -61,30 +66,31 @@ const myactivity = [
     imgsrc: "/messageicon.png",
   },
 ];
-const feedback =[
+const feedback = [
   {
-    id:"feedbackandinfomation",
-    title:"Feedback & Information",
-    imgsrc:"/feedbackandinformation.png"
-  },{
-    id:"Browse-FAQs",
-    title:"Browse FAQs",
-    imgsrc:"/questionmark.png"
-  }
-]
+    id: "feedbackandinfomation",
+    title: "Feedback & Information",
+    imgsrc: "/feedbackandinformation.png",
+  },
+  {
+    id: "Browse-FAQs",
+    title: "Browse FAQs",
+    imgsrc: "/questionmark.png",
+  },
+];
 const Dashboard = () => {
   return (
     <div className="container w-full">
-
       <div className="flex justify-evenly py-5 flex-wrap gap-5 bg-white p-2 ">
         {nav.map((nav) => (
-          <div
+          <Link
+           to={nav.link}
             key={nav.title}
             className="w-[46%] py-2 px-4  flex gap-2 items-center border rounded-md"
           >
             <img src={nav.imgsrc} className="w-6" />
             <span>{nav.title}</span>
-          </div>
+          </Link>
         ))}
       </div>
 
@@ -96,7 +102,7 @@ const Dashboard = () => {
           {accountsettings.map((setting) => (
             <div key={setting.id} className="flex justify-between">
               <div className="flex gap-2 items-center">
-                <img src={setting.imgsrc} className="w-5"/>
+                <img src={setting.imgsrc} className="w-5" />
                 <span className="text-sm">{setting.title}</span>
               </div>
               <img src="/rightarrowicon.svg" className="w-3" />
@@ -111,7 +117,7 @@ const Dashboard = () => {
           {myactivity.map((activity) => (
             <div key={activity.id} className="flex justify-between">
               <div className="flex gap-2 items-center">
-                <img src={activity.imgsrc} className="w-5"/>
+                <img src={activity.imgsrc} className="w-5" />
                 <span className="text-sm">{activity.title}</span>
               </div>
               <img src="/rightarrowicon.svg" className="w-3" />
@@ -120,10 +126,10 @@ const Dashboard = () => {
         </div>
       </div>
 
-     
-
       <div className="bg-white my-2 p-2">
-        <h3 className="text-lg font-semibold pb-2 border-b">Feedback & Information</h3>
+        <h3 className="text-lg font-semibold pb-2 border-b">
+          Feedback & Information
+        </h3>
         <div className="flex flex-col gap-5 py-2">
           {feedback.map((feedback) => (
             <div key={feedback.id} className="flex justify-between">
@@ -137,8 +143,9 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <button className=" w-full bg-white py-2 px-5 text-blue-600">Logout</button>
-    
+      <button className=" w-full bg-white py-2 px-5 text-blue-600">
+        Logout
+      </button>
     </div>
   );
 };

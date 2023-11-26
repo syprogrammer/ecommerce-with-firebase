@@ -30,6 +30,8 @@ import OrderAddress from "./components/OrderAddress";
 import OrderSummary from "./components/OrderSummary";
 import OrderPayment from "./components/OrderPayment";
 import DashboardLayout from "./Layout/DashboardLayout";
+import OrderStatus from "./pages/OrderStatus";
+import OrdersList from "./pages/OrdersList";
 
 const About = lazy(() => import("./pages/About"));
 
@@ -133,6 +135,14 @@ export default function App() {
         {
           path: "/dashboard/editprofile",
           element: <EditProfile />,
+        },
+        {
+          path: "/dashboard/orderslist",
+          element: <OrdersList/>,
+        },
+        {
+          path: "/dashboard/orderlist/:orderid",
+          element: <OrderStatus />,
         },
       ],
     },
