@@ -1,14 +1,31 @@
 import React, { useState } from "react";
 import OrderHeader from "./OrderHeader";
 import useTotalPrice from "../hooks/useTotalPrice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PaymentOption from "./PaymentOption";
+import setOrder from "../utils/setOrder";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import { useSelector } from "react-redux";
 
 const OrderPayment = () => {
+  const navigate = useNavigate();
   const totalPrice = useTotalPrice();
+  const cartItems = useSelector((store) => store.cart.items);
+  const uid = useSelector((store) => store.auth.userAuth.uid);
   const [paymentMethod, setPaymentMethod] = useState("paytmupi");
   console.log(paymentMethod);
-  
+
+  const createOrder = async (e) => {
+    e.preventDefault();
+    const docRef = await addDoc(collection(db, "orders"), {
+      orderItems: cartItems,
+      uid: uid,
+      paymentMethod: paymentMethod,
+    });
+    console.log("Document written with ID: ", docRef.id);
+    navigate("/dashboard ");
+  };
   return (
     <div className="container">
       <OrderHeader title="Payment" step={3} backlink="/order/summary" />
@@ -84,11 +101,13 @@ const OrderPayment = () => {
       </form>
       <div className="lg:hidden pb-16">
         <img src="/paymentsafetylabel.svg" className="w-full" />
-        <img src="/safteylabelbadge.png"/>
+        <img src="/safteylabelbadge.png" />
       </div>
       <div className="hidden lg:flex items-center justify-center w-[50%] gap-4 mx-auto">
-        <img src="/safeandsecure.png"/>
-        <p className="text-gray-700">Safe and Secure and Payments. Easy Returns. 100% Authentic products</p>
+        <img src="/safeandsecure.png" />
+        <p className="text-gray-700">
+          Safe and Secure and Payments. Easy Returns. 100% Authentic products
+        </p>
       </div>
       {/* --------------------------end middlesection--------- */}
 
@@ -102,6 +121,7 @@ const OrderPayment = () => {
         </div>
 
         <Link
+          onClick={createOrder}
           to="/dashboard"
           className="bg-yellow-400 py-2 w-1/3 text-center rounded-md"
         >

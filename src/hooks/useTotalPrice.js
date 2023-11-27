@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux'
 
 const useTotalPrice = () => {
-    const cartItems = useSelector((store)=>store.cart.items)
-    const totalPrice = cartItems.reduce(
+    const orderItems = useSelector((store)=>store.cart.items)
+    console.log("orderitems",orderItems)
+    const totalPrice = orderItems.reduce(
         (total, item) => total + item.price * item.qty,
         0
       );

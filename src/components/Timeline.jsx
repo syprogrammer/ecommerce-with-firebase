@@ -69,16 +69,16 @@ const Timeline = () => {
           <div className="absolute w-4 h-4 bg-green-500 rounded-full mt-2 -start-[9px] ">
             <img src="/okicon.svg" />
           </div>
-          <div className="flex text-xl font-semibold gap-2">
-            <h3 className="">{orderStage.title}</h3>
-            <h3 className="text-gray-500 text-lg">{orderStage.time}</h3>
+          <div className="flex items-center gap-2">
+            <h3 className="text-lg ">{orderStage.title}</h3>
+            <h3 className="text-gray-500 text-sm">{orderStage.time}</h3>
           </div>
           <div className="py-4 flex flex-col gap-3">
             {orderStage.statusList.map((status) => (
               <div key={status.title} className="flex flex-col">
                 <div className="flex flex-col">
-                  <span className="">{status.title}</span>
-                  <span className="text-sm text-gray-500">{status.time}</span>
+                  <span className="text-sm text-gray-800">{status.title}</span>
+                  <span className="text-xs text-gray-500">{status.time}</span>
                 </div>
               </div>
             ))}

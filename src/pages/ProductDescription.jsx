@@ -6,6 +6,7 @@ import SimilarProducts from "../components/SimilarProducts";
 import DescriptionShimmer from "../components/shimmer/DescriptionShimmer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { createOrder } from "../redux/slices/orderSlice";
 
 const ProductDescription = () => {
   const [pincode, setPincode] = useState("");
@@ -16,10 +17,9 @@ const ProductDescription = () => {
 
   const addProductToCart = (item) => {
     dispatch(addItem(item));
+    dispatch(createOrder(item))
   };
-  const handleBuy = (item) => {
-    addProductToCart(item);
-  };
+  
   return product ? (
     <div className="lg:max-w-[90%] mx-auto">
       <div className="flex flex-col lg:flex-row justify-evenly  mx-auto bg-white py-10 px-5 ">
