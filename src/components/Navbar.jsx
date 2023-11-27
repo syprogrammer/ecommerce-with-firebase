@@ -18,7 +18,7 @@ export default function Navbar() {
           to="/"
           className="flex flex-col justify-start items-start px-2 md:px-4"
         >
-          <img src="./logo.svg" data-testid="logo" className=" -ml-8 w-32" />
+          <img src="./logo.svg" alt="Flipkart" data-testid="logo" className=" -ml-8 text-center text-blue-700 font-bold italic w-32" />
           <div className="flex gap-1 items-center">
             <span className="text-gray-700 italic text-[10px] lg:text-xs">
               Explore
@@ -26,7 +26,7 @@ export default function Navbar() {
             <span className="text-yellow-500 italic text-[10px]  lg:text-xs">
               Plus
             </span>
-            <img src="./fplus.svg" className="w-1 md:w-2" />
+            <img src="./fplus.svg" alt="f" className="w-1 md:w-2 text-white" />
           </div>
         </Link>
       </div>

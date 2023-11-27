@@ -47,7 +47,7 @@ const OrderAddress = () => {
                     )}
                   </div>
                 </div>
-                <p className="w-[70%]">
+                <p className="w-[70%] text-sm lg:text-lg">
                   No H69, Outer Circle Connaught Circus New Delhi - 110001
                 </p>
               </div>

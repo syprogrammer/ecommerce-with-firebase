@@ -7,7 +7,7 @@ const CartItems = () => {
   return (
     <div className='flex flex-col w-full pb-16'>
     {cartItems?.map((product) => (
-        <div className="mt-2 p-2 bg-white">
+        <div key={product.id} className="mt-2 p-2 bg-white">
           <CartCard product={product} removbtn={false}/>
         </div>
       ))}

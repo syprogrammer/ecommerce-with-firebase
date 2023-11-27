@@ -1,15 +1,17 @@
-const statuses = [
+import Timeline from "../components/Timeline";
+
+const statusList = [
   {
-    statusTitle: "Your Order has been placed",
+    title: "Your Order has been placed",
+    time: "  Sun,25th Sep'23 - 4:32pm",
+  },
+  {
+    title: "Seller has processed your order",
     statusTime: "  Sun,25th Sep'23 - 4:32pm",
   },
   {
-    statusTitle: "Seller has processed your order",
-    statusTime: "  Sun,25th Sep'23 - 4:32pm",
-  },
-  {
-    statusTitle: "Your item has been picked up by courier partner",
-    statusTime: "  Sun,25th Sep'23 - 4:32pm",
+    title: "Your item has been picked up by courier partner",
+    time: "  Sun,25th Sep'23 - 4:32pm",
   },
 ];
 
@@ -33,66 +35,12 @@ const OrderStatus = () => {
         </div>
         <img src="/boatheadphone.jpeg" className="h-24" />
       </div>
-
-      {/* -------------order status------------------- */}
-      <div className="flex flex-col p-4 bg-white">
-
-      
-      <div className="flex gap-4">
-        <div className="w-1 flex flex-col items-center">
-          <div className="w-3 h-4  rounded-full bg-green-500"></div>
-          <div className=" h-full border-l-2 border-green-500"></div>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex flex-col gap-3">
-            <div className="flex text-lg">
-              <span>Order Confirmed</span>
-            </div>
-            {/* ----------------------- */}
-            {statuses.map((status) => (
-              <div className="flex flex-col">
-                <div className="flex flex-col">
-                  <span className="">{status.statusTitle}</span>
-                  <span className="text-sm text-gray-500">
-                    {status.statusTime}
-                  </span>
-                </div>
-              </div>
-            ))}
-            {/* --------------- */}
-          </div>
-        </div>
+      {/* --------------------------- */}
+      <div className="p-4 bg-white">      
+       <div className="">
+        <Timeline data={statusList}/>
+       </div>
       </div>
-      {/* -------------end-------------------- */}
-      {/* -------------order status------------------- */}
-      
-      <div className="flex gap-4  ">
-        <div className="w-1 flex flex-col items-center">
-          <div className="pt-4 w-3 h-4  rounded-full bg-green-500"></div>
-          <div className=" h-full border-l-2 border-green-500"></div>
-        </div>
-        <div className="flex flex-col ">
-          <div className="flex flex-col gap-3">
-            <div className="flex text-lg">
-              <span>Shipped</span>
-            </div>
-            {/* ----------------------- */}
-            {statuses.map((status) => (
-              <div className="flex flex-col">
-                <div className="flex flex-col">
-                  <span className="">{status.statusTitle}</span>
-                  <span className="text-sm text-gray-500">
-                    {status.statusTime}
-                  </span>
-                </div>
-              </div>
-            ))}
-            {/* --------------- */}
-          </div>
-        </div>
-      </div>
-      </div>
-      {/* -------------end-------------------- */}
     </div>
   );
 };

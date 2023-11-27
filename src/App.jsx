@@ -45,6 +45,7 @@ export default function App() {
   }
   const userData = useSelector((store) => store.auth.userData);
   console.log(userData, "and ", userData.name == "nouser");
+  
   const ProtectedRoute = ({ children }) => {
     if (!isAuthenticated) {
       console.log("not authenticated");
