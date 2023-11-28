@@ -20,7 +20,7 @@ const useAuth = () => {
      useEffect(() => {
        onAuthStateChanged(auth, (user) => {
          if (user) {
-           console.log(user);
+           console.log("user",user);
            setIsAuthenticated(true)
            dispatch(
             saveUserAuth({

@@ -66,8 +66,8 @@ const Timeline = () => {
     <ol className="relative border-s-2 border-green-500 ">
       {orderStages?.map((orderStage) => (
         <li key={orderStage.title} className="mb-5 ms-4">
-          <div className="absolute w-4 h-4 bg-green-500 rounded-full mt-2 -start-[9px] ">
-            <img src="/okicon.svg" />
+          <div className="absolute w-3 h-3 bg-green-500 rounded-full mt-2 -start-[7px] ">
+            <img src="/okicon.svg" className="w-3"/>
           </div>
           <div className="flex items-center gap-2">
             <h3 className="text-lg ">{orderStage.title}</h3>

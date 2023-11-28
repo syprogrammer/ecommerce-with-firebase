@@ -4,7 +4,7 @@ import useTotalPrice from "../hooks/useTotalPrice";
 import { Link, useNavigate } from "react-router-dom";
 import PaymentOption from "./PaymentOption";
 import setOrder from "../utils/setOrder";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useSelector } from "react-redux";
 
@@ -18,12 +18,19 @@ const OrderPayment = () => {
 
   const createOrder = async (e) => {
     e.preventDefault();
-    const docRef = await addDoc(collection(db, "orders"), {
-      orderItems: cartItems,
-      uid: uid,
-      paymentMethod: paymentMethod,
-    });
-    console.log("Document written with ID: ", docRef.id);
+    const orderRef = doc(collection(db, "orders"));
+    await setDoc(orderRef , 
+      {
+        orderid:orderRef .id,
+        orderItems: cartItems,
+        uid: uid,
+        orderStatus:["Your order has been placed on Nov 27"],
+        totalPrice:totalPrice,
+        paymentMethod: paymentMethod,
+      }
+    );
+   
+    console.log("Document written with ID: ", orderRef.id);
     navigate("/dashboard ");
   };
   return (
