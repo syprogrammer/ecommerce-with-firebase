@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OrderCard = ({orderItems}) => {
+const OrderStatusCard = ({orderItems}) => {
   return (
     <div className="flex justify-between bg-white p-4 gap-4 border-b">
     <div className="flex flex-col gap-2">
@@ -19,4 +19,4 @@ const OrderCard = ({orderItems}) => {
   )
 }
 
-export default OrderCard
+export default OrderStatusCard

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import Timeline from "../components/Timeline";
 import useGetOrder from "../hooks/useGetOrder";
 import OrderStatusShimmer from "../components/shimmer/OrderStatusShimmer";
-import OrderCard from "../components/orderCard";
+import OrderStatusCard from "../components/OrderStatusCard";
 
 const statusList = [
   {
@@ -34,7 +34,7 @@ const OrderStatus = () => {
       <div className="px-5 py-2 text-gray-500 text-sm bg-white border-b">
         order ID - {order?.orderid}
       </div>
-      <OrderCard orderItems={order.orderItems} />
+      <OrderStatusCard orderItems={order.orderItems} />
       {/* --------------------------- */}
       <div className="p-4 bg-white">
         <div className="">
