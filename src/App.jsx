@@ -36,7 +36,9 @@ import OrdersList from "./pages/OrdersList";
 const About = lazy(() => import("./pages/About"));
 
 export default function App() {
-  const isAuthenticated = useAuth();
+  const auth = useAuth()
+
+  const isAuthenticated = useSelector((store)=>store.auth.userAuth.isAuthenticated)
   console.log("authenticated", isAuthenticated);
   const isOnline = useOnlineStatus();
   console.log("online", isOnline);

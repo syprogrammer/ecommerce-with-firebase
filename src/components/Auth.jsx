@@ -56,7 +56,7 @@ const Auth = ({
         // The signed-in user info.
         const user = result.user;
         console.log(user)
-        navigate("/")
+        navigate(-1)
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       })

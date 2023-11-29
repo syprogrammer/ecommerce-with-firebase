@@ -26,7 +26,7 @@ export default function Navbar() {
             <span className="text-yellow-500 italic text-[10px]  lg:text-xs">
               Plus
             </span>
-            <img src="./fplus.svg" alt="f" className="w-1 md:w-2 text-white" />
+            <img src="./fplus.svg" alt="h" className="w-1 md:w-2 text-white" />
           </div>
         </Link>
       </div>

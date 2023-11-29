@@ -1,5 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+import { saveUserAuth } from "../redux/slices/userSlice";
+import { useDispatch } from "react-redux";
+
 const nav = [
   {
     title: "Orders",
@@ -79,12 +84,29 @@ const feedback = [
   },
 ];
 const Dashboard = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        dispatch(
+          saveUserAuth({
+            isAuthenticated:false,
+            uid:"notloggedin"
+          }))
+       navigate("/")
+      })
+      .catch((error) => {
+       console.log("dashboard signout err", error)
+      });
+  };
   return (
     <div className="container w-full">
       <div className="flex justify-evenly py-5 flex-wrap gap-5 bg-white p-4 ">
         {nav.map((nav) => (
           <Link
-           to={nav.link}
+            to={nav.link}
             key={nav.title}
             className="w-[46%] py-2 px-4  flex gap-2 items-center border rounded-md"
           >
@@ -142,10 +164,7 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
-
-      <button className=" w-full bg-white  p-2  text-blue-600">
-        Logout
-      </button>
+      <button onClick={userSignOut} className=" w-full bg-white  p-2  text-blue-600">Logout</button>
     </div>
   );
 };
