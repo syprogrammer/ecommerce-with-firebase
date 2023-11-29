@@ -9,7 +9,7 @@ const OrdersShimmer = () => {
         "orderhsimmer5",
       ].map((shimmer) => (
         <div key={shimmer} className="flex items-center  gap-4 p-5 bg-white m-4">
-          <div className="flex items-center justify-center w-1/3 p-5 mb-4 bg-gray-300 rounded dark:bg-gray-700">
+          <div className="flex items-center justify-center w-1/3 p-5 mb-4 bg-gray-300 rounded ">
             <svg
               className="w-10 h-10 text-gray-200 "
               aria-hidden="true"

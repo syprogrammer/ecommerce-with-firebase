@@ -81,7 +81,7 @@ const feedback = [
 const Dashboard = () => {
   return (
     <div className="container w-full">
-      <div className="flex justify-evenly py-5 flex-wrap gap-5 bg-white p-2 ">
+      <div className="flex justify-evenly py-5 flex-wrap gap-5 bg-white p-4 ">
         {nav.map((nav) => (
           <Link
            to={nav.link}
@@ -94,7 +94,7 @@ const Dashboard = () => {
         ))}
       </div>
 
-      <div className="bg-white my-2 p-2">
+      <div className="bg-white my-2 p-4">
         <h3 className="text-lg font-semibold pb-2 border-b">
           Account Settings
         </h3>
@@ -111,7 +111,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="bg-white my-2 p-2">
+      <div className="bg-white my-2 p-4">
         <h3 className="text-lg font-semibold pb-2 border-b">My Activity</h3>
         <div className="flex flex-col gap-5 py-2">
           {myactivity.map((activity) => (
@@ -126,7 +126,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="bg-white my-2 p-2">
+      <div className="bg-white my-2 p-4">
         <h3 className="text-lg font-semibold pb-2 border-b">
           Feedback & Information
         </h3>
@@ -143,7 +143,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <button className=" w-full bg-white relative top-14 p-2  text-blue-600">
+      <button className=" w-full bg-white  p-2  text-blue-600">
         Logout
       </button>
     </div>

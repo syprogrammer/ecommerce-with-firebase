@@ -19,7 +19,7 @@ const DashboardLayout = () => {
         <span className="text-[10px] lg:text-sm text-gray-400">Member</span>
         </div>
       </div>
-      <div className="w-full lg:w-[70%] mx-auto bg-white px-2">
+      <div className="w-full lg:w-[70%] mx-auto ">
         <Outlet />
       </div>
     </div>

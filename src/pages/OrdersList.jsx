@@ -37,10 +37,10 @@ const OrdersList = () => {
         <Link
           to={`/dashboard/orderlist/${order.orderid}`}
           key={order.orderid}
-          className="flex gap-6 items-center px-5 py-7 bg-white  border-y cursor-pointer"
+          className="flex gap-3 items-center px-4 py-7 bg-white  border-y cursor-pointer"
         >
-          <img src={order.orderItems[0].img} className="w-12" />
-          <div className="flex flex-col gap-2 tracking-normal text-sm w-[80%]">
+          <img src={order.orderItems[0].img} className="w-10" />
+          <div className="flex flex-col gap-2 tracking-normal text-sm w-[95%]">
             <span >{order.orderStatus || "Order Placed"}</span>
             <span className="text-gray-500 ">
               {order.orderItems[0].name.slice(0, 30)}
