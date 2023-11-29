@@ -11,7 +11,7 @@ const OrdersShimmer = () => {
         <div key={shimmer} className="flex items-center  gap-4 p-5 bg-white m-4">
           <div className="flex items-center justify-center w-1/3 p-5 mb-4 bg-gray-300 rounded dark:bg-gray-700">
             <svg
-              className="w-10 h-10 text-gray-200 dark:text-gray-600"
+              className="w-10 h-10 text-gray-200 "
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -22,10 +22,10 @@ const OrdersShimmer = () => {
             </svg>
           </div>
           <div className="flex flex-col">
-            <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-40 mb-4"></div>
-            <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-            <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-            <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+            <div className="h-2.5 bg-gray-200 rounded-full w-40 mb-4"></div>
+            <div className="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+            <div className="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+            <div className="h-2 bg-gray-200 rounded-full mb-2.5"></div>
           </div>
         </div>
       ))}

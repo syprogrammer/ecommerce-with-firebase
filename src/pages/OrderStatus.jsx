@@ -31,10 +31,10 @@ const OrderStatus = () => {
 
   return (
     <div className="">
-      <div className="px-5 py-2 text-gray-500 text-sm bg-white border-b">
-        order ID - {order?.orderid}
+      <div className="px-5 py-3 text-gray-500 text-sm bg-white border-b">
+        Order ID - {order?.orderid}
       </div>
-      <OrderStatusCard orderItems={order.orderItems} />
+      <OrderStatusCard order={order} />
       {/* --------------------------- */}
       <div className="p-4 bg-white">
         <div className="">

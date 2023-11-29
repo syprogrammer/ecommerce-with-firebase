@@ -39,9 +39,9 @@ const OrdersList = () => {
           key={order.orderid}
           className="flex gap-6 items-center px-5 py-7 bg-white  border-y cursor-pointer"
         >
-          <img src={order.orderItems[0].img} className="w-10" />
-          <div className="flex flex-col gap-2 tracking-normal w-[80%]">
-            <span>{order.orderStatus || "Order Placed"}</span>
+          <img src={order.orderItems[0].img} className="w-12" />
+          <div className="flex flex-col gap-2 tracking-normal text-sm w-[80%]">
+            <span >{order.orderStatus || "Order Placed"}</span>
             <span className="text-gray-500 ">
               {order.orderItems[0].name.slice(0, 30)}
               {order.orderItems[0].name.length > 30 ? "..." : ""}
