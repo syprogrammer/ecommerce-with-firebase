@@ -32,6 +32,8 @@ import OrderPayment from "./components/OrderPayment";
 import DashboardLayout from "./Layout/DashboardLayout";
 import OrderStatus from "./pages/OrderStatus";
 import OrdersList from "./pages/OrdersList";
+import AdminLayout from "./Layout/AdminLayout";
+import AdminHome from "./pages/admin/AdminHome";
 
 const About = lazy(() => import("./pages/About"));
 
@@ -148,7 +150,17 @@ export default function App() {
           element: <OrderStatus />,
         },
       ],
-    },
+    },{
+      path:"/admin",
+      element:<AdminLayout/>,
+      errorElement:<Error/>,
+      children:[
+        {
+          path:"/admin",
+          element:<AdminHome/>
+        }
+      ]
+    }
   ]);
 
   return <RouterProvider router={appRouter} />;

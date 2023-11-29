@@ -73,14 +73,22 @@ const myactivity = [
 ];
 const feedback = [
   {
+    id: "Admin",
+    title: "Admin",
+    imgsrc: "/adminicon.png",
+    link:"/admin"
+  },
+  {
     id: "feedbackandinfomation",
     title: "Feedback & Information",
     imgsrc: "/feedbackandinformation.png",
+    link:"/dashboard"
   },
   {
     id: "Browse-FAQs",
     title: "Browse FAQs",
     imgsrc: "/questionmark.png",
+    link:"/dashboard"
   },
 ];
 const Dashboard = () => {
@@ -154,13 +162,15 @@ const Dashboard = () => {
         </h3>
         <div className="flex flex-col gap-5 py-2">
           {feedback.map((feedback) => (
-            <div key={feedback.id} className="flex justify-between">
+            <Link to={feedback.link} key={feedback.id} >
+            <div className="flex justify-between">
               <div className="flex gap-2 items-center">
                 <img src={feedback.imgsrc} className="w-5" />
                 <span className="text-sm">{feedback.title}</span>
               </div>
               <img src="/rightarrowicon.svg" className="w-3" />
             </div>
+            </Link>
           ))}
         </div>
       </div>
