@@ -8,7 +8,7 @@ const EditProfile = () => {
   const [profile, setProfile] = useState({
     name: "",
     email: "",
-    altmobileno: "",
+    mobilenumber: "",
     altemail: "",
   });
   const [address, setAddress] = useState({
@@ -34,7 +34,7 @@ const EditProfile = () => {
     setProfile({ ...profile, [e.target.id]: e.target.value });
   };
   const handleAddressChange = (e) => {
-    setAddress({ ...address, [e.target.id]: e.target.value });
+    setAddress([{ ...address, [e.target.id]: e.target.value}]);
   };
   console.log(profile, address);
   const SaveProfile = async (e) => {
@@ -42,7 +42,7 @@ const EditProfile = () => {
     // Add a new document in collection "cities"
     await setDoc(doc(db, "users", uid), {
       profile: profile,
-      address: address,
+      address:{... address,name:profile.name,mobilenumber:profile.mobilenumber},
     });
     setUpdated(true);
   };
@@ -80,11 +80,11 @@ const EditProfile = () => {
           />
         </div>
         <div className="flex flex-col gap-2 lg:w-[48%]">
-          <label htmlFor="altmob">Alternate Mobile Number</label>
+          <label htmlFor="mobilenumber"> Mobile Number</label>
           <input
             className="border px-4 py-2 rounded-md w-full outline-blue-500"
-            id="altmobileno"
-            value={profile.altmobileno}
+            id="mobilenumber"
+            value={profile.mobilenumber}
             type="text"
             minLength={10}
             maxLength={10}
