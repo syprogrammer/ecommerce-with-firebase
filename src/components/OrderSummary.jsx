@@ -22,9 +22,11 @@ const OrderSummary = () => {
               <button className="bg-gray-100 py-1 px-4 text-xs">Home</button>
             </div>
             <div className="h-5">
-              <button className="text-blue-700 shadow-md border py-1 px-4 text-sm">
-                Change
-              </button>
+              <Link to="/order">
+                <button className="text-blue-700 shadow-md border py-1 px-4 text-sm">
+                  Change
+                </button>
+              </Link>
             </div>
           </div>
           <p className="w-[70%]">
