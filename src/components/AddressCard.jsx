@@ -1,15 +1,7 @@
 import React from "react";
 
-const AddressCard = ({
-  address,
-  setAddress,
-  name,
-  locality,
-  city,
-  state,
-  mobilenumber,
-  pincode,
-}) => {
+const AddressCard = ({ address, handleOrderAddress, addressData }) => {
+  const { name, locality, city, state, mobilenumber, pincode } = addressData;
   const id = `${name}${mobilenumber}${locality}${city}`;
   const addressValue = `${locality} ${city} ${state}-${pincode}`;
   return (
@@ -23,7 +15,7 @@ const AddressCard = ({
         value={addressValue}
         id={id}
         checked={address == id}
-        onChange={(e) => setAddress(e.target.id)}
+        onChange={()=>handleOrderAddress(addressData,id)}
         className="mt-2"
       />
       <label htmlFor={id} className="w-full">

@@ -3,11 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const orderSlice = createSlice({
     name:"order",
     initialState:{
-        items:[]
+        items:[],
+        address:{name:"",mobilenumber:"",address:""},
+        totalPrice:0,
     },
     reducers:{
         createOrder:function(state,action){
             state.items.push({...action.payload,qty:1})
+        },
+        setOrderAddress:function(state,action){
+            state.address=action.payload
         },
         deleteOrder:function(state){
             state.items =[]
@@ -15,5 +20,5 @@ const orderSlice = createSlice({
     }
 })
 
-export const {createOrder,deleteOrder} = orderSlice.actions
+export const {setOrderAddress,createOrder,deleteOrder} = orderSlice.actions
 export default orderSlice.reducer

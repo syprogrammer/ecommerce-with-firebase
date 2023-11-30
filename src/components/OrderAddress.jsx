@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import OrderHeader from "./OrderHeader";
 import { Link } from "react-router-dom";
 import NewAddressModal from "./NewAddressModal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AddressCard from "./AddressCard";
+import { setOrderAddress } from "../redux/slices/orderSlice";
 
 const OrderAddress = () => {
   const [address, setAddress] = useState("noaddressset");
   const [newAddressPopup, setNewAddressPopup] = useState(false);
+  const dispatch = useDispatch();
   const addressList = useSelector((store) => store.auth.userData.address);
+
+  const handleOrderAddress = (orderData,id) => {
+    dispatch(setOrderAddress(orderData));
+    setAddress(id);
+  };
+
   console.log("addresslist=>", addressList);
   console.log(address);
   if (addressList.length < 0) {
@@ -34,12 +42,16 @@ const OrderAddress = () => {
       {addressList.length > 0 && (
         <form className="pb-16 lg:pb-2" onSubmit={(e) => e.preventDefault}>
           {addressList.map((ads) => (
-            <AddressCard address={address} setAddress={setAddress} {...ads} />
+            <AddressCard
+              address={address}
+              handleOrderAddress={handleOrderAddress}
+              addressData={ads}
+            />
           ))}
         </form>
       )}
       {!newAddressPopup && (
-        <Link to={address == "noaddressset"}>
+        <Link to={address == "noaddressset" ? "#" : "/order/summary"}>
           <div className="bg-orange-500 fixed lg:sticky bottom-0 w-full p-3 text-xl text-center text-white font-semibold">
             Deliver here
           </div>

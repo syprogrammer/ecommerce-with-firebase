@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 import useTotalPrice from "../hooks/useTotalPrice";
 
 const OrderSummary = () => {
-  const totalPrice = useTotalPrice()
+  const totalPrice = useTotalPrice();
+  const orderAddress = useSelector((store) => store.order.address);
+
   return (
     <div className="container">
       <OrderHeader title="Order Summary" step={2} backlink="/order" />
@@ -16,7 +18,7 @@ const OrderSummary = () => {
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
-              <p>saurarbh yadav</p>
+              <p>{orderAddress.name}</p>
               <button className="bg-gray-100 py-1 px-4 text-xs">Home</button>
             </div>
             <div className="h-5">
@@ -26,9 +28,9 @@ const OrderSummary = () => {
             </div>
           </div>
           <p className="w-[70%]">
-            yadav mobile garhi chaukhandi... 
+            {`${orderAddress.locality} ${orderAddress.city} ${orderAddress.state}-${orderAddress.pincode}`}
           </p>
-          <p>7982822274</p>
+          <p>{orderAddress.mobilenumber}</p>
         </div>
       </div>
       <CartItems />
