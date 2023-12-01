@@ -3,16 +3,11 @@ import useProductsList from "../hooks/useProductsList";
 import ProductCard from "./ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import scrollToTop from "../utils/ScrollToTop";
 
 const SimilarProducts = () => {
   const products = useProductsList();
-  const scrollToTop = () => {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
+  
 
   if (!products) return null;
   return (

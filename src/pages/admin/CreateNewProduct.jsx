@@ -5,12 +5,12 @@ import { db } from "../../firebase";
 const CreateNewProduct = () => {
   const [product, setProduct] = useState({
     name: "",
-    price: "",
+    price: 0,
     img: "",
-    qty: "",
-    category: "",
-    seller: "",
-    description: "",
+    qty: 5,
+    category: "clothes",
+    seller: "Goyal Garments",
+    description: "description",
   });
   const handleProductChange = (e) => {
     setProduct({
@@ -22,17 +22,20 @@ const CreateNewProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const productRef = await doc(collection(db, "products"));
-    await setDoc(productRef, product);
+    await setDoc(productRef, {
+        ...product,
+        id:productRef.id
+    });
     console.log("new product id",productRef.id)
   };
   console.log(product);
 
   return (
-    <div className="container p-2">
+    <div className="container  shadow-lg border p-2 mx-auto">
       <h1 className="font-semibold text-xl text-center py-5">
         Create New Product
       </h1>
-      <div className="">
+      <div className="w-[90%] mx-auto">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col lg:flex-row justify-center  flex-wrap p-2 gap-4"
@@ -43,7 +46,7 @@ const CreateNewProduct = () => {
               name="name"
               id="name"
               required
-              className="border py-2 px-2 rounded-md lg:w-[500px]"
+              className="border py-2 px-2 rounded-md lg:w-[400px]"
               minLength={10}
               maxLength={100}
               value={product.name}
@@ -53,10 +56,11 @@ const CreateNewProduct = () => {
           <div className="flex flex-col gap-2">
             <label htmlFor="price">Price</label>
             <input
+            type="number"
               name="price"
               id="price"
               required
-              className="border py-2 px-2 rounded-md lg:w-[500px]"
+              className="border py-2 px-2 rounded-md lg:w-[400px]"
               minLength={3}
               maxLength={8}
               value={product.price}
@@ -69,7 +73,7 @@ const CreateNewProduct = () => {
               name="img"
               id="img"
               required
-              className="border py-2 px-2 rounded-md lg:w-[500px]"
+              className="border py-2 px-2 rounded-md lg:w-[400px]"
               minLength={10}
               maxLength={100}
               value={product.img}
@@ -82,7 +86,7 @@ const CreateNewProduct = () => {
               name="qty"
               id="qty"
               required
-              className="border py-2 px-2 rounded-md lg:w-[500px]"
+              className="border py-2 px-2 rounded-md lg:w-[400px]"
               minLength={1}
               maxLength={4}
               value={product.qty}
@@ -95,7 +99,7 @@ const CreateNewProduct = () => {
               name="category"
               id="category"
               required
-              className="border py-2 px-2 rounded-md lg:w-[500px]"
+              className="border py-2 px-2 rounded-md lg:w-[400px]"
               minLength={5}
               maxLength={25}
               value={product.category}
@@ -108,7 +112,7 @@ const CreateNewProduct = () => {
               name="seller"
               id="seller"
               required
-              className="border py-2 px-2 rounded-md lg:w-[500px]"
+              className="border py-2 px-2 rounded-md lg:w-[400px]"
               minLength={4}
               maxLength={100}
               value={product.seller}

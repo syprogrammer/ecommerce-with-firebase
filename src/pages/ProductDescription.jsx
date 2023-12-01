@@ -7,19 +7,20 @@ import DescriptionShimmer from "../components/shimmer/DescriptionShimmer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { createOrder } from "../redux/slices/orderSlice";
+import scrollToTop from "../utils/ScrollToTop";
 
 const ProductDescription = () => {
   const [pincode, setPincode] = useState("");
   const product = useProductDescription();
-  // const product = false
+  scrollToTop();
   console.log(product);
   const dispatch = useDispatch();
 
   const addProductToCart = (item) => {
     dispatch(addItem(item));
-    dispatch(createOrder(item))
+    dispatch(createOrder(item));
   };
-  
+
   return product ? (
     <div className="lg:max-w-[90%] mx-auto">
       <div className="flex flex-col lg:flex-row justify-evenly  mx-auto bg-white py-10 px-5 ">
