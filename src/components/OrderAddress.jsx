@@ -43,6 +43,7 @@ const OrderAddress = () => {
         <form className="pb-16 lg:pb-2" onSubmit={(e) => e.preventDefault}>
           {addressList.map((ads) => (
             <AddressCard
+             key={`${ads.name}-${ads.locality}`}
               address={address}
               handleOrderAddress={handleOrderAddress}
               addressData={ads}

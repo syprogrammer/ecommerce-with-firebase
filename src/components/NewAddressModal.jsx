@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { arrayUnion, doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addNewAddress } from "../redux/slices/userSlice";
 
 const NewAddressModal = ({setNewAddressPopup}) => {
     const uid = useSelector((store)=>store.auth.userAuth.uid)
+    const dispatch = useDispatch()
+
   const [address, setAddress] = useState({
     name: "",
     mobilenumber: "",
@@ -23,7 +26,10 @@ const NewAddressModal = ({setNewAddressPopup}) => {
     await updateDoc(profileRef, {
       address: arrayUnion(address),
     });
+    console.log(address)
+    dispatch(addNewAddress(address))
     setNewAddressPopup(false)
+
     console.log("successfully saved new Address")
   };
   return (
@@ -49,8 +55,8 @@ const NewAddressModal = ({setNewAddressPopup}) => {
               id="mobilenumber"
               value={address.mobilenumber}
               type="text"
-              minLength={12}
-              maxLength={12}
+              minLength={10}
+              maxLength={10}
               onChange={handleAddressChange}
             />
           </div>

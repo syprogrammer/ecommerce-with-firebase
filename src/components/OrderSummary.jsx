@@ -16,7 +16,7 @@ const OrderSummary = () => {
       {/* ------------middle section------------------- */}
       <div className="bg-white p-5 border-t ">
         <div className="flex flex-col">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between py-2 lg:py-0">
             <div className="flex gap-2 items-center">
               <p>{orderAddress.name}</p>
               <button className="bg-gray-100 py-1 px-4 text-xs">Home</button>
@@ -29,10 +29,10 @@ const OrderSummary = () => {
               </Link>
             </div>
           </div>
-          <p className="w-[70%]">
+          <p className="w-[90%] pt-2">
             {`${orderAddress.locality} ${orderAddress.city} ${orderAddress.state}-${orderAddress.pincode}`}
           </p>
-          <p>{orderAddress.mobilenumber}</p>
+          <p>+91-{orderAddress.mobilenumber}</p>
         </div>
       </div>
       <CartItems />

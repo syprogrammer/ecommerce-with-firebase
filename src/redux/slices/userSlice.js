@@ -9,7 +9,7 @@ export const authSlice = createSlice({
     isAuthenticated: false,
     uid: "useruid",
 },
-    userData: { name: "nouser" }
+    userData: { name: "nouser",address:[],cart:[] }
     },
 reducers: {
     saveUserAuth: function (state, action) {
@@ -19,9 +19,12 @@ reducers: {
     saveUserData: function (state, action) {
         console.log("authtoken", action.payload)
         state.userData = action.payload
+    },
+    addNewAddress:function(state,action){
+        state.userData.address.push(action.payload)
     }
 }
 })
 
-export const { saveUserAuth, saveUserData } = authSlice.actions
+export const { addNewAddress,saveUserAuth, saveUserData } = authSlice.actions
 export default authSlice.reducer

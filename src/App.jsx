@@ -34,6 +34,7 @@ import OrderStatus from "./pages/OrderStatus";
 import OrdersList from "./pages/OrdersList";
 import AdminLayout from "./Layout/AdminLayout";
 import AdminHome from "./pages/admin/AdminHome";
+import CreateNewProduct from "./pages/admin/CreateNewProduct";
 
 const About = lazy(() => import("./pages/About"));
 
@@ -158,7 +159,11 @@ export default function App() {
         {
           path:"/admin",
           element:<AdminHome/>
-        }
+        },
+        {
+          path:"/admin/createnewproduct",
+          element:<CreateNewProduct/>
+        },
       ]
     }
   ]);
