@@ -7,7 +7,6 @@ import scrollToTop from "../utils/ScrollToTop";
 
 const SimilarProducts = () => {
   const products = useProductsList();
-  
 
   if (!products) return null;
   return (
@@ -18,15 +17,28 @@ const SimilarProducts = () => {
           spaceBetween={4}
           slidesPerView={2.2}
           className="similarproductsSwiper "
-          
+          breakpoints={{
+            640: {
+              slidesPerView: 2.2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 4.5,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 5.5,
+              spaceBetween: 50,
+            },
+          }}
         >
-        {products.map((prod) => (
-          <SwiperSlide key={prod.id}>
-            <Link to={`/product/${prod.id}`} className="">
-              <ProductCard {...prod} />
-            </Link>
-          </SwiperSlide>
-        ))}
+          {products.map((prod) => (
+            <SwiperSlide key={prod.id}>
+              <Link to={`/product/${prod.id}`} className="">
+                <ProductCard {...prod} />
+              </Link>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

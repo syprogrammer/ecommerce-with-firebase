@@ -4,7 +4,7 @@ import { addItem } from "../redux/slices/cartSlice";
 import RatingsAndReviews from "../components/RatingandReviews";
 import SimilarProducts from "../components/SimilarProducts";
 import DescriptionShimmer from "../components/shimmer/DescriptionShimmer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { createOrder } from "../redux/slices/orderSlice";
 import scrollToTop from "../utils/ScrollToTop";
@@ -12,7 +12,9 @@ import scrollToTop from "../utils/ScrollToTop";
 const ProductDescription = () => {
   const [pincode, setPincode] = useState("");
   const product = useProductDescription();
-  scrollToTop();
+  useEffect(() => {
+    scrollToTop();
+  },[]);
   console.log(product);
   const dispatch = useDispatch();
 
