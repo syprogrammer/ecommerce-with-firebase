@@ -49,7 +49,7 @@ const Cart = () => {
         <div className="flex flex-col gap-4 p-2">
           <div className="flex justify-between">
             <span>Price({cartItems.length} items)</span>
-            <span>₹{totalPrice}</span>
+            <span>₹{totalPrice.toLocaleString("en-IN")}</span>
           </div>
           <div className="flex justify-between">
             <span>Discount</span>
@@ -70,8 +70,8 @@ const Cart = () => {
           <span>
             ₹
             {totalPrice - discount > discount
-              ? totalPrice - discount
-              : totalPrice}
+              ? (totalPrice - discount).toLocaleString("en-IN")
+              : totalPrice.toLocaleString("en-IN")}
           </span>
         </div>
         {totalPrice - discount > discount && (

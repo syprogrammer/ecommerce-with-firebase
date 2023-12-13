@@ -19,7 +19,7 @@ export default function ProductCard({ id, name, img, price }) {
         </div>
 
         <div className="flex items-center gap-1 text-sm md:text-lg">
-          <span>₹{price}</span>
+          <span>₹{price.toLocaleString("en-IN")}</span>
           <span className="line-through text-gray-400">₹540</span>
           <span className="text-sm text-green-700 font-medium">50% off</span>
         </div>

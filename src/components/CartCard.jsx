@@ -36,7 +36,7 @@ const CartCard = ({ product, removebtn }) => {
         </div>
         <div className="flex items-center gap-2">
           <span className="line-through text-gray-700 text-sm">₹1999</span>
-          <span className="font-medium">₹{product.price}</span>
+          <span className="font-medium">₹{product.price.toLocaleString("en-IN")}</span>
 
           <span className="text-sm text-green-700 font-medium">50% off</span>
           <div className="flex items-center gap-2 text-xs  px-2 text-green-700 font-medium">

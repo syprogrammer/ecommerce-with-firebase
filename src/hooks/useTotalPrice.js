@@ -7,7 +7,7 @@ const useTotalPrice = () => {
         (total, item) => total + item.price * item.qty,
         0
       );
-  return totalPrice
+  return totalPrice.toLocaleString("en-IN")
 
 }
 
