@@ -12,7 +12,7 @@ const SimilarProducts = () => {
   return (
     <div>
       <h2 className="font-medium text-xl py-4 px-2">Similar Products</h2>
-      <div onClick={scrollToTop} className="flex  gap-1">
+      <div  className="flex  gap-1">
         <Swiper
           spaceBetween={4}
           slidesPerView={2.2}
