@@ -6,7 +6,7 @@ import SortAndFilter from "../components/SortAndFilter";
 import SearchShimmer from "../components/shimmer/SearchShimmer";
 
 const Search = () => {
-  const { products, limitData,setLimitData } = useProductsList();
+  const { products, totalProductsCount, page, setPage } = useProductsList();
   // const products = false
 
   return !products ? (
@@ -20,19 +20,34 @@ const Search = () => {
         <div>
           <SortAndFilter />
         </div>
-        <div className="w-full lg:px-2 bg-white flex  flex-wrap  lg:justify-evenly">
-          {products.map((prod) => (
-            <Link
-              key={prod.id}
-              to={`/product/${prod.id}`}
-              className="w-1/2 md:w-1/3 lg:w-[220px]"
-            >
-              <ProductCard {...prod} />
-            </Link>
-          ))}
+
+        <div className="flex flex-col">
+          <div className="w-full lg:px-2 bg-white flex  flex-wrap  lg:justify-evenly">
+            {products.map((prod) => (
+              <Link
+                key={prod.id}
+                to={`/product/${prod.id}`}
+                className="w-1/2 md:w-1/3 lg:w-[220px]"
+              >
+                <ProductCard {...prod} />
+              </Link>
+            ))}
+          </div>
+          <div className="flex flex-col bg-white  items-center ">
+            <span className="w-full text-center p-2 text-sm border-y">
+              Showing {products.length} of {totalProductsCount} Products
+            </span>
+            {products.length < totalProductsCount && (
+              <button
+                className=" text-sm bg-orange-700 text-white px-4 py-1 my-2 rounded-sm"
+                onClick={() => setPage(page + 1)}
+              >
+                Load More
+              </button>
+            )}
+          </div>
         </div>
       </div>
-      <button onClick={()=>setLimitData(limitData+8)}>Load More</button>
     </div>
   );
 };
