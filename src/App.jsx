@@ -45,9 +45,11 @@ export default function App() {
   console.log("authenticated", isAuthenticated);
   const isOnline = useOnlineStatus();
   console.log("online", isOnline);
+  
   if (!isOnline) {
     return <h1>User is offline</h1>;
   }
+
   const userData = useSelector((store) => store.auth.userData);
   console.log(userData, "and ", userData.name == "nouser");
   

@@ -6,8 +6,7 @@ import "swiper/css";
 
 
 const SimilarProducts = () => {
-  const products = useProductsList();
-
+  const {products} = useProductsList();
   if (!products) return null;
   return (
     <div>
@@ -32,7 +31,7 @@ const SimilarProducts = () => {
             },
           }}
         >
-          {products.map((prod) => (
+          {products?.map((prod) => (
             <SwiperSlide key={prod.id}>
               <Link to={`/product/${prod.id}`} className="">
                 <ProductCard {...prod} />

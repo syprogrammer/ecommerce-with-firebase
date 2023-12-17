@@ -23,7 +23,7 @@ const Search = () => {
 
         <div className="flex flex-col">
           <div className="w-full lg:px-2 bg-white flex  flex-wrap  lg:justify-evenly">
-            {products.map((prod) => (
+            {products?.map((prod) => (
               <Link
                 key={prod.id}
                 to={`/product/${prod.id}`}
