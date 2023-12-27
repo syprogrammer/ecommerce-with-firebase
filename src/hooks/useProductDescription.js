@@ -1,18 +1,16 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { collection, query, where, getDocs, getDoc, doc } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 
-const useProductDescription = () => {
-    const {prodId} = useParams()
+const useProductDescription = (prodId) => {
     const [product, setProduct] = useState(null)
 
     useEffect(() => {
-        getProduct()
+        getProduct(prodId)
     }, [prodId])
 
    
-    async function getProduct() {
+    async function getProduct(prodId) {
         console.log(prodId)
         const docRef = doc(db, "products", prodId);
         const docSnap = await getDoc(docRef);

@@ -33,11 +33,11 @@ const SearchContainer = () => {
         <div className="absolute w-full top-[40px] border-t min-h-screen md:min-h-40  md:rounded-md bg-white ">
           {suggestionData?.suggestions?.map((suggestion) => (
             <Link 
-            to={`/search/${suggestion.value.replace(/\W+/g, "-")}`}  
+            to={`/search/${suggestion?.value?.replace(/\W+/g, "-")}`}  
             onClick={closeSearchBox}
             className="w-full border-b border-gray-100 pb-2 flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-100 rounded-md">
                 <img src="/search.svg" className="w-6"/>
-              {suggestion.value}
+              {suggestion?.value}
             </Link>
           ))}
         </div>

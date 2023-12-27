@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useState } from "react";
 import Error from "./components/Error";
 
 //custom hooks
@@ -35,24 +35,20 @@ import OrdersList from "./pages/OrdersList";
 import AdminLayout from "./Layout/AdminLayout";
 import AdminHome from "./pages/admin/AdminHome";
 import CreateNewProduct from "./pages/admin/CreateNewProduct";
+import Offline from "./components/Offline";
 
 const About = lazy(() => import("./pages/About"));
 
 export default function App() {
-  const auth = useAuth()
-
-  const isAuthenticated = useSelector((store)=>store.auth.userAuth.isAuthenticated)
-  console.log("authenticated", isAuthenticated);
+  const auth = useAuth();
   const isOnline = useOnlineStatus();
-  console.log("online", isOnline);
-  
-  if (!isOnline) {
-    return <h1>User is offline</h1>;
-  }
-
+  const isAuthenticated = useSelector(
+    (store) => store.auth.userAuth.isAuthenticated
+  );
+  console.log("authenticated", isAuthenticated);
   const userData = useSelector((store) => store.auth.userData);
   console.log(userData, "and ", userData.name == "nouser");
-  
+
   const ProtectedRoute = ({ children }) => {
     if (!isAuthenticated) {
       console.log("not authenticated");
@@ -64,8 +60,11 @@ export default function App() {
     return children;
   };
 
-
-
+  console.log("online", isOnline);
+  
+  if (!isOnline) {
+    return <Offline />;
+  }
   const appRouter = createBrowserRouter([
     {
       path: "/",
@@ -129,9 +128,7 @@ export default function App() {
       path: "/dashboard",
       element: (
         <ProtectedRoute>
-       
-            <DashboardLayout />
-
+          <DashboardLayout />
         </ProtectedRoute>
       ),
       // errorElement: <Error />,
@@ -146,28 +143,29 @@ export default function App() {
         },
         {
           path: "/dashboard/orderslist",
-          element: <OrdersList/>,
+          element: <OrdersList />,
         },
         {
           path: "/dashboard/orderlist/:orderid",
           element: <OrderStatus />,
         },
       ],
-    },{
-      path:"/admin",
-      element:<AdminLayout/>,
-      errorElement:<Error/>,
-      children:[
+    },
+    {
+      path: "/admin",
+      element: <AdminLayout />,
+      errorElement: <Error />,
+      children: [
         {
-          path:"/admin",
-          element:<AdminHome/>
+          path: "/admin",
+          element: <AdminHome />,
         },
         {
-          path:"/admin/createnewproduct",
-          element:<CreateNewProduct/>
+          path: "/admin/createnewproduct",
+          element: <CreateNewProduct />,
         },
-      ]
-    }
+      ],
+    },
   ]);
 
   return <RouterProvider router={appRouter} />;

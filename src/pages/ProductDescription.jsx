@@ -5,17 +5,20 @@ import RatingsAndReviews from "../components/RatingandReviews";
 import SimilarProducts from "../components/SimilarProducts";
 import DescriptionShimmer from "../components/shimmer/DescriptionShimmer";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { createOrder } from "../redux/slices/orderSlice";
 import scrollTop from "../utils/scrollTop";
 
 
 const ProductDescription = () => {
+  const {prodId} = useParams()
   const [pincode, setPincode] = useState("");
-  const product = useProductDescription();
+  const product = useProductDescription(prodId);
+
   useEffect(() => {
     scrollTop();
-  },[]);
+  },[prodId]);
+
   console.log(product);
   const dispatch = useDispatch();
 
