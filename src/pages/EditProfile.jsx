@@ -30,7 +30,7 @@ const EditProfile = () => {
 
   useEffect(() => {
     console.log("from profile ", userData, !userData?.address?.city);
-    if (userData?.address?.city) {
+    if (userData?.profile?.name) {
       console.log("inside if");
       setProfile(userData.profile);
       setAddress(userData.address);

@@ -9,7 +9,7 @@ const DashboardLayout = () => {
   return (
     <div className="bg-gray-100 min-h-[100vh] ">
       <div className="bg-white border-b pb-2 px-2">
-        <div className="flex gap-5 pt-4  px-3  leading-5">
+        <div className="flex gap-5 pt-4  px-3 cursor-pointer leading-5">
           <img src="/backarrow.svg  " onClick={() => navigate(-1)} />
 
           <span className="text-lg  font-semibold">

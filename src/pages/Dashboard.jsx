@@ -32,31 +32,38 @@ const accountsettings = [
     id: "flipkartplus",
     title: "Flipkart Plus",
     imgsrc: "/fplusicon.png",
+    link: "/dashboard",
   },
   {
     id: "editprofile",
     title: "Edit Profile",
     imgsrc: "/usericon.png",
+  
+    link: "/editprofile",
   },
   {
     id: "Saved-Cards-&-Wallet",
     title: "Saved Cards & Wallet",
     imgsrc: "/walleticon.png",
+    link: "/dashboard",
   },
   {
     id: "Saved-Addresses",
     title: "Saved Addresses",
     imgsrc: "/locationicon.png",
+    link: "/dashboard",
   },
   {
     id: "select-language",
     title: "Select Language",
     imgsrc: "/langicon.png",
+    link: "/dashboard",
   },
   {
     id: "Notification-Settings",
     title: "Notification Settings",
     imgsrc: "/notificationicon.png",
+    link: "/dashboard",
   },
 ];
 const myactivity = [
@@ -130,13 +137,13 @@ const Dashboard = () => {
         </h3>
         <div className="flex flex-col gap-5 py-2">
           {accountsettings.map((setting) => (
-            <div key={setting.id} className="flex justify-between">
+            <Link to={setting.link} key={setting.id} className="flex justify-between">
               <div className="flex gap-2 items-center">
                 <img src={setting.imgsrc} className="w-5" />
                 <span className="text-sm">{setting.title}</span>
               </div>
               <img src="/rightarrowicon.svg" className="w-3" />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

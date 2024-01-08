@@ -4,10 +4,16 @@ import ProductCard from "../components/ProductCard";
 import useProductsList from "../hooks/useProductsList";
 import SortAndFilter from "../components/SortAndFilter";
 import SearchShimmer from "../components/shimmer/SearchShimmer";
+import { useState } from "react";
 
 const Search = () => {
   const { products, totalProductsCount, page, setPage } = useProductsList();
   // const products = false
+  const [filter, setFilter] = useState({
+    category: "",
+    name: "",
+    price: 2000,
+  });
 
   return !products ? (
     <SearchShimmer />
