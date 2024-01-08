@@ -113,14 +113,14 @@ const Auth = ({
           <div id="recaptcha-container" className="recaptcha-container"></div>
           <button 
           onClick={googleSignin}
-          className="border-2 flex gap-2 items-center justify-center shadow-md font-semibold text-sm py-2 w-full text-[#2874f0] text-center my-1 ">
+          className="border flex gap-2 items-center justify-center shadow-md font-semibold text-sm py-2 w-full text-[#2874f0] text-center my-1 ">
             <img src="/googleicon.svg" className="w-6" />
             <span>{googlebuttonText}</span>
           </button>
           <Link to={secondbuttonLink}>
             <button
               id="sign-in-button"
-              className="sign-in-button shadow-md font-semibold text-sm py-2 w-full text-[#2874f0] text-center my-1 "
+              className="sign-in-button shadow-md font-semibold text-sm py-3 border w-full text-[#2874f0] text-center my-1 "
             >
               {secondbuttonText}
             </button>

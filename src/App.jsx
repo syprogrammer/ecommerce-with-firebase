@@ -54,6 +54,10 @@ export default function App() {
       console.log("not authenticated");
       return <Navigate to="/login" />;
     }
+    return children;
+  };
+
+  const UpdatedProfile = ({ children }) => {
     if (userData.name == "nouser") {
       return <Navigate to="/editprofile" />;
     }
@@ -61,7 +65,7 @@ export default function App() {
   };
 
   console.log("online", isOnline);
-  
+
   if (!isOnline) {
     return <Offline />;
   }
@@ -85,7 +89,11 @@ export default function App() {
         },
         {
           path: "/editprofile",
-          element: <EditProfile />,
+          element: (
+            <ProtectedRoute>
+              <EditProfile />
+            </ProtectedRoute>
+          ),
         },
         {
           path: "/search/:searchquery",
@@ -105,7 +113,9 @@ export default function App() {
       path: "/order",
       element: (
         <ProtectedRoute>
-          <OrderLayout />
+          <UpdatedProfile>
+            <OrderLayout />
+          </UpdatedProfile>
         </ProtectedRoute>
       ),
       // errorElement: <Error />,
@@ -128,7 +138,10 @@ export default function App() {
       path: "/dashboard",
       element: (
         <ProtectedRoute>
+          <UpdatedProfile>
           <DashboardLayout />
+          </UpdatedProfile>
+      
         </ProtectedRoute>
       ),
       // errorElement: <Error />,

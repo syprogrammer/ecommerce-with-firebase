@@ -52,7 +52,8 @@ const EditProfile = () => {
     try {
       await setDoc(doc(db, "users", uid), {
         profile: profile,
-        address:{... address,name:profile.name,mobilenumber:profile.mobilenumber},
+        // address:{... address,name:profile.name,mobilenumber:profile.mobilenumber},
+        address:[],
       });
     } catch (error) {
       console.log(error);
@@ -60,7 +61,7 @@ const EditProfile = () => {
     }
 
     getUserData(uid);
-    navigate("/dashboard");
+
   };
 
   const getUserData = async (uid) => {
@@ -68,6 +69,7 @@ const EditProfile = () => {
     if (userData) {
       dispatch(saveUserData(userData));
     }
+    navigate(-1);
     console.log("userData", userData);
   };
 
@@ -128,7 +130,7 @@ const EditProfile = () => {
               onChange={handleProfileChange}
             />
           </div>
-          <h1 className="w-full mt-5 mb-8 font-semibold text-xl">Address</h1>
+          {/* <h1 className="w-full mt-5 mb-8 font-semibold text-xl">Address</h1>
           <div className="w-full flex flex-wrap flex-col lg:flex-row  gap-5">
             <div className="flex flex-col gap-2  lg:w-[48%]">
               <label htmlFor="city">City</label>
@@ -178,7 +180,7 @@ const EditProfile = () => {
                 onChange={handleAddressChange}
               />
             </div>
-          </div>
+          </div> */}
           <button
             disabled={updated}
             style={{ backgroundColor: updated ? "gray" : "#fb641b" }}
