@@ -27,7 +27,7 @@ const OrdersList = () => {
   if (!orders) {
     return <OrdersShimmer />;
   } else if (orders.length < 1) {
-    return <NoOrders/>
+    return <NoOrders title="You have no Orders"/>
   }
   console.log(orders[0]);
 
