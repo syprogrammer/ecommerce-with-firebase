@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
 const useSuggestions = (searchText) => {
-    if(searchText.length < 1){
-       return
+    if(searchText.length<1){
+        searchText ="trending"
     }
     const [suggestions, setSuggestions] = useState("")
-
+    
     useEffect(() => {
         const debouncing = setTimeout(()=>{
             if(searchText){
@@ -23,6 +23,7 @@ const useSuggestions = (searchText) => {
         console.log(suggestion)
         setSuggestions(suggestion)
     }
+
     return suggestions
 }
 

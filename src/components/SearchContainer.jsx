@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import useSuggestions from "../hooks/useSuggestions";
-import { pureFinalPropsSelectorFactory } from "react-redux/es/connect/selectorFactory";
 import { Link } from "react-router-dom";
 
 const SearchContainer = () => {
   const [searchText, setSearchText] = useState("");
   const [searchBox, setSearchBox] = useState(false);
   const suggestionData = useSuggestions(searchText);
+  console.log(searchText)
+
   const openSearchBox = () => { 
     setSearchBox(true);
   };
